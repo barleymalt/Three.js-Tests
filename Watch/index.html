@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="#" />
-    <title>A-Frame Breaking Down Primitives</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <title>Watch Visualization</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/master/dist/aframe-orbit-controls-component.min.js"></script>
   </head>
   <body>
-    <a-scene background="color: #080808">
+    <a-scene background="color: #080808" vr-mode-ui="enabled: false">
       <!-- Asset Management -->
       <a-assets>
         <img id="image" src="img/1.jpg" />
@@ -20,19 +22,31 @@
         ></a-asset-item>
       </a-assets>
 
-      <a-camera
-        camera="fov: 35;"
+      <a-entity
         id="camera"
-        rotation-reader
-        position="0 1.6 16"
-        listener
-        wasd-controls-enabled="false"
-        look-controls="
-        enabled:false;
-        reverseMouseDrag:true; 
-        touchEnabled: false"
+        camera
+        position="0 0 50"
+        orbit-controls="
+          autoRotate: false;
+          target: #model;
+          enableDamping: true;
+          dampingFactor: 0.25;
+          rotateSpeed:0.14;
+          minDistance:3;
+          maxDistance:15;"
+        mouse-cursor=""
       >
-      </a-camera>
+      </a-entity>
+
+      <!-- Text Header -->
+      <a-entity text="
+      value: Hello! I'm a Watch :D; 
+      color: #FFFFFF; 
+      shader: msdf; 
+      font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json;" 
+      position="1000 0 -1000"
+      scale="1000 1000 1000"
+      ></a-entity>     
 
       <!-- Model -->
       <a-entity
@@ -43,8 +57,10 @@
         scale=".5 .5 .5"
         animation="
          property: object3D.rotation.y;
-         to: 360; 
+         from: -30
+         to: 30; 
          dur: 10000; 
+         direction: alternate;
          easing: easeInOutQuad;
          loop: true"
       >
