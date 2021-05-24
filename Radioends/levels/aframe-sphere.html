@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="#" />
-    <title>Cube</title>
+    <title>Sphere</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/master/dist/aframe-orbit-controls-component.min.js"></script>
   </head>
@@ -46,9 +46,10 @@
       </a-entity>
 
       <!-- Model -->
-      <a-box
+      <a-sphere
         id="target"
-        rotation="45 45 45"
+        rotation="-45 -45 45"
+
         scale="5 5 5"
         animation="
          property: object3D.rotation.z;
@@ -62,24 +63,9 @@
         shader: flat; 
         color: #ff2342"
       >
-        <!-- <a-circle
-          wireframe="true"
-          material="
-          shader: flat; 
-          color: #ffffff"
-          animation="
-          property: object3D.rotation.z;
-          from: 120
-          to: -120; 
-          dur: 10000; 
-          dir: alternate;
-          easing: easeInOutQuad;
-          loop: true"
-        >
-        </a-circle> -->
         <a-circle
           wireframe="true"
-          position="0 0 .52"
+          position="0 0 1"
           scale="20 20 20"
           material="
           shader: flat; 
@@ -92,7 +78,22 @@
           loop: true"
         >
         </a-circle>
-      </a-box>
+        <a-circle
+          wireframe="true"
+          position="0 0 -1"
+          scale="20 20 20"
+          material="
+          shader: flat; 
+          color: #ffffff"
+          animation="
+          property: object3D.rotation.z;
+          from: 0
+          to: -360; 
+          dur: 5000; 
+          loop: true"
+        >
+        </a-circle>
+      </a-sphere>
     </a-scene>
   </body>
 </html>

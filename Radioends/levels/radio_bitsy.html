@@ -6,16 +6,24 @@
 
 <meta charset="UTF-8">
 
-<title>{clr3}D S A W{clr3}</title>
+<title>"""
+{clr3}Radio{clr3}
+{pg}
+{clr3}{clr1}Machines {clr1}were mice and {clr1}men {clr1}were lions once upon a time.
+But now that it's the opposite it's twice upon a {clr1}time{clr1}.{clr3}
+"""</title>
 
 <script type="text/bitsyGameData" id="exportedGameData">
-{clr3}D S A W{clr3}
+"""
+{clr3}Radio{clr3}
+{pg}
+{clr3}{clr1}Machines {clr1}were mice and {clr1}men {clr1}were lions once upon a time.
+But now that it's the opposite it's twice upon a {clr1}time{clr1}.{clr3}
+"""
 
 # BITSY VERSION 7.2
 
 ! ROOM_FORMAT 1
-
-TEXT_DIRECTION RTL
 
 PAL 0
 NAME blueprint
@@ -29,7 +37,7 @@ PAL 1
 255,35,66
 
 ROOM 0
-g,c,b,b,l,0,0,0,0,l,l,l,l,b,l,i
+g,c,b,b,l,0,l,l,l,l,l,l,l,b,l,i
 f,b,d,b,0,0,0,0,0,0,0,0,a,b,0,k
 f,b,0,b,0,0,0,0,0,0,0,a,c,b,0,k
 f,c,0,d,0,0,0,0,0,0,0,c,b,b,b,k
@@ -37,19 +45,40 @@ f,d,0,0,0,0,0,0,0,0,0,c,b,b,a,k
 f,0,0,0,0,0,0,0,0,0,0,d,b,b,c,k
 f,0,0,0,0,0,0,0,0,0,0,0,b,b,b,k
 f,0,0,a,0,0,0,0,0,0,0,0,b,c,b,k
-f,a,0,c,0,0,0,0,0,0,0,a,b,d,c,0
-f,c,a,b,0,0,0,0,0,0,0,c,b,0,d,0
-a,b,c,b,0,0,0,0,0,0,0,b,b,0,0,0
-c,b,b,b,0,0,0,0,0,0,0,b,b,0,0,0
-b,c,b,b,0,0,0,0,0,a,0,d,b,0,a,0
-c,d,b,c,0,0,0,0,0,c,0,0,b,0,c,0
-d,0,b,d,0,0,0,0,0,b,0,0,b,0,b,k
-h,e,b,e,e,e,e,e,e,b,e,e,c,e,b,k
+f,a,0,c,0,0,0,0,0,0,0,a,b,d,c,k
+f,c,a,b,0,0,a,0,0,0,0,c,b,0,d,k
+f,b,c,b,0,a,c,0,0,0,0,b,b,0,0,k
+f,b,b,b,0,c,b,0,0,0,0,b,b,0,0,k
+f,c,b,b,0,b,b,0,0,a,0,d,b,0,a,k
+f,d,b,c,0,b,c,0,0,c,0,0,b,0,c,k
+f,0,b,d,0,b,d,0,0,b,0,0,b,0,b,k
+h,e,b,e,e,b,e,e,e,b,e,e,c,e,b,j
 NAME re_room_0
 ITM 0 11,7
 ITM 0 11,1
 ITM 1 1,7
 ITM 1 14,3
+ITM 1 5,9
+ITM 0 6,8
+PAL 0
+
+ROOM 1
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 PAL 0
 
 TIL a
@@ -61,10 +90,37 @@ TIL a
 00010000
 00010100
 00010000
+>
+00010100
+00000100
+00010100
+00010110
+00010000
+00010100
+00010000
+00000100
 NAME wall0
 WAL true
 
 TIL b
+01000101
+01010000
+01010101
+01010000
+00000101
+01010101
+00000101
+01010001
+>
+01010001
+01000100
+01010101
+01000100
+00010001
+01010101
+00010001
+01000101
+>
 01000101
 01010000
 01000101
@@ -85,6 +141,15 @@ TIL c
 01011101
 01010101
 01011101
+>
+01000001
+01010111
+01110101
+01000111
+01010101
+01011101
+01010101
+01011101
 NAME wall2
 WAL true
 
@@ -94,9 +159,18 @@ TIL d
 01010101
 01010100
 00010100
+01010000
+00000100
+00000000
+>
+01000101
+01010101
+01010101
+01010100
+00010101
 00010000
 00000000
-00000000
+00010000
 NAME wall3
 WAL true
 
@@ -192,22 +266,40 @@ NAME o_wall7
 
 SPR A
 00001000
-01011011
+01001001
 00010010
-11011000
-01001010
+11001000
+01001000
 00011000
 00001000
 00001000
+>
+00001000
+00011011
+00000010
+11011000
+01001000
+01001000
+00001010
+00010000
 POS 0 7,4
 
 SPR a
 00100000
 00100000
-00000000
+00100000
 00100100
 00100000
 00100100
+01100101
+01100111
+>
+00000000
+00100000
+00000000
+00000001
+00100100
+00100001
 01100101
 01100111
 NAME cat
@@ -223,28 +315,77 @@ SPR b
 00011100
 00010100
 00010100
+>
+00000100
+00010100
+01010000
+01000100
+00010000
+00011100
+00010100
+00010100
 NAME rodney
 DLG 5
 POS 0 3,6
 
 SPR c
+00000000
 00000100
+00010000
+01000101
+01010100
+00000001
+00010100
+00010100
+>
+00000000
 00000100
 00010000
 00000101
 01010101
 01010001
-00010100
-00010100
+00000100
+00000000
 DLG 4
 POS 0 9,11
+
+SPR e
+01000010
+00000000
+01000010
+11000011
+00000000
+10000001
+00000000
+00000000
+>
+01000010
+01000010
+00000000
+11000011
+10000001
+00000000
+10000001
+00000000
+NAME glass_door
+DLG 6
+POS 0 5,0
 
 ITM 0
 00000100
 00000000
+00000100
+00010001
+00000100
 00000000
 00000000
-00001000
+00000000
+>
+00000100
+00000000
+00000000
+00000100
+00010001
 00000000
 00000100
 00000000
@@ -252,14 +393,23 @@ NAME tea
 DLG 1
 
 ITM 1
-00010000
+00000000
+00001010
 00000000
 00000100
 00000000
-00010000
-00000010
+00001010
 00000000
 00000100
+>
+00000000
+00001010
+00000000
+00001010
+00000000
+00000100
+00000100
+00000000
 NAME key
 DLG 2
 
@@ -268,23 +418,31 @@ Did you say something? Maybe I was listening...
 NAME cat dialog
 
 DLG 1
-You found a nice warm cup of tea
+{clr3}You found a nice warm cup of tea{clr3}
 NAME tea dialog
 
 DLG 2
-A key! {wvy}What does it open?{wvy}
+{clr3}A key! {wvy}What does it open?{wvy}{clr3}
 NAME key dialog
 
 DLG 3
  
 
 DLG 4
-?do you need a frame ,or a flamE
+{clr3}?do you need a frame ,or a flamE{clr3}
 NAME sprite c dialog
 
 DLG 5
-!hi ,i'M rodneY stewarT
+"""
+Hi, I'm Rodney and I've lost my {clr1}kidney{clr1}.
+{pg}
+{clr1}Will {clr1}you help me find it?
+"""
 NAME rodney dialog
+
+DLG 6
+Salutes! I'm an exit
+NAME glass_door dialog
 
 VAR a
 42
@@ -3560,7 +3718,7 @@ var DialogRenderer = function() {
 		//create new image none exists
 		if(textboxInfo.img == null)
 			textboxInfo.img = context.createImageData(textboxInfo.width*scale, textboxInfo.height*scale);
-
+			
 		// fill text box with black
 		for (var i=0;i<textboxInfo.img.data.length;i+=4)
 		{
@@ -9216,6 +9374,7 @@ CHAR 255
 010010
 000000
 000000
+</script>
 </script>
 
 </head>
