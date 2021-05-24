@@ -1,0 +1,8 @@
+// fill text box with black
+for (var i=0;i<textboxInfo.img.data.length;i+=4)
+{
+    textboxInfo.img.data[i+0]=255;
+    textboxInfo.img.data[i+1]=255;
+    textboxInfo.img.data[i+2]=255;
+    textboxInfo.img.data[i+3]=255;
+}
