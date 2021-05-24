@@ -13,15 +13,15 @@
     <style>
       h1 {
         text-align: right;
-        color: #ff2342;
         font-size: 4vw;
-      }
-      p {
-        color: #ff2342;
       }
       body {
         background-color: #ffffff;
+        color: #191919;
         font-family: "Unica One", sans-serif;
+      }
+      #color-red {
+        color: #ff2342;
       }
 
       /* Desktop */
@@ -63,27 +63,28 @@
   </head>
   <body>
     <div class="row">
-      <h1>Radio Ends</h1>
+      <h1>Radio</h1>
+      <h1 id="color-red">Ends</h1>
     </div>
     <div class="row">
       <p>>_<</p>
     </div>
     <div class="row">
       <div class="child">
-        <p>WASD</p>
-        <iframe src="levels/radio_bitsy.html"> </iframe>
+        <p id="color-red">WASD</p>
+        <iframe src="/levels/radio_bitsy.html"> </iframe>
       </div>
       <div class="child">
         <p>Mouse/Touch</p>
-        <iframe src="levels/aframe-cube.html"></iframe>
+        <iframe src="/levels/aframe-cube.html"></iframe>
       </div>
     </div>
     <div class="row" id="mobile-hidden">
       <div class="child">
-        <iframe src="levels/aframe-sphere.html"></iframe>
+        <iframe src="/levels/aframe-sphere.html"></iframe>
       </div>
       <div class="child">
-        <iframe src="levels/ends_bitsy.html"> </iframe>
+        <iframe src="/levels/ends_bitsy.html"> </iframe>
       </div>
     </div>
   </body>
