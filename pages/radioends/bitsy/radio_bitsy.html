@@ -566,7 +566,8 @@ SPR A
 01001000
 00001010
 00010000
-POS 3 7,7
+POS 0 9,4
+ITM 0 1
 
 SPR a
 00100000
@@ -869,24 +870,19 @@ DLG 2
 DLG 0
 """
 {
-  - framma_d == 0 ?
+  - frm_i == false ?
     {clr1}Hi, I'm Framma. I sell frames. Do you need a frame?{clr1}
-    {framma_d = 1}
+    {frm_i = true}
   - else ?
     {clr1}Hi there! If you need a frame just {clr3}ask me{clr3}...{clr1}
 }{
-  - {item "1"} ?
-    {pg}
-    {clr1}I didn't ask you anything.{clr1}
-    {pg}
-    {clr1}Why do you want to give me answers?{clr1}
   - {item "0"} ?
     {pg}
     {
       - {item "0"} == 1 ?
         {clr1}[Ask for a {clr3}frame{clr3}] (use {clr3}{printItem "0"}{clr3}){clr1}{clr1}
         {pg}
-        {exit "3" 8 7 "fade_b"}
+        {exit "3" 7 7 "fade_b"}
       - else ?
         {clr1}[Ask a {clr3}question{clr3}] (use {clr3}{printItem "0"}{clr3}){clr1}
         {pg}
@@ -905,6 +901,37 @@ DLG 0
             {clr1}It is, but you need a very specific license that only the bravest men are able to get.{clr1}
         }
         {item "0" {{item "0"} - 1}}
+    }
+  - {item "1"} ?
+    {pg}
+    {clr1}Give {clr3}answers{clr3} (use {clr3}{printItem "1"}{clr3}){clr1}{
+      - frm_sec == 0 ?
+        {pg}
+        {clr1}I didn't ask you anything.{clr1}
+        {pg}
+        {clr1}Why would you want to give me answers?{clr1}
+        {pg}
+        {clr1}Give {clr3}answer{clr3} (use {clr3}{printItem "1"}{clr3}){clr1}
+        {pg}
+        {clr1}'Because I think you are cute.'{clr1}
+        {pg}
+        {clr1}Oh... Well...{clr1}
+        {pg}
+        {clr1}Thank you! I think you are cute too...{clr1}
+        {item "1" {{item "1"} - 1}}
+        {frm_sec = 1}
+      - frm_sec == 1 ?
+        {pg}
+        {clr1}'Would you like to grab a beer with me one of these days?'{clr1}
+        {pg}
+        {clr1}You are cheating... this is a question, not an answer!{clr1}
+        {item "1" {{item "1"} - 1}}
+        {frm_sec = 2}
+      - else ?
+        {pg}
+        {clr1}'Please, answer me!'{clr1}
+        {pg}
+        {clr1}First you must learn to ask the right {clr3}questions{clr3}.{clr1}
     }
   - else ?
     {pg}
@@ -932,10 +959,10 @@ NAME cornerstone_pg_dial
 DLG 5
 """
 {
-  - rodney_d == 0 ?
+  - rdn_d == 0 ?
     {clr1}Hi, I'm {shk}Rodney{shk} and I've lost my {clr3}kidney{clr3}.{clr1} 
     {pg}
-    {clr1}You know, I used to be a singer. Now I'm just an old man...{clr1}
+    {clr1}You know, I used to be a 'slinger. Now I'm just an old man...{clr1}
     {pg}
     {clr1}... walking around like a ghost in Glasgow...{clr1}
     {pg}
@@ -945,9 +972,9 @@ DLG 5
     {pg}
     {clr1}Just, don't tell me you don't know...{clr1}
     {pg}
-    {rodney_d = 1}
+    {rdn_d = 1}
 }{
-  - rodney_d == 2 ?
+  - rdn_d == 2 ?
     {clr1}Can you hear me?{clr1}
     {pg}
     {clr1}{wvy}Swoosh{wvy}!{clr1}
@@ -959,7 +986,7 @@ DLG 5
     {pg}
     {clr1}I should be feeling better now... still, isn't there something missing?{clr1}
     {item "1" 0}
-    {rodney_d = 2}
+    {rdn_d = 2}
   - else ?
     {clr1}Don' tell me you don't know...{clr1}
 }
@@ -984,16 +1011,22 @@ NAME teleport_exn
 
 DLG a
 """
-[Main] You wanted to talk to me.
+{clr3}[Main] You wanted to talk to me.{clr3}
 {pg}
-[Main] What for?
+{clr2}[Main] What for?{clr2}
 """
 NAME frame_pg_dial
 
-VAR framma_d
+DLG b
+ 
+
+VAR rdn_d
 0
 
-VAR rodney_d
+VAR frm_i
+false
+
+VAR frm_sec
 0
 
 
