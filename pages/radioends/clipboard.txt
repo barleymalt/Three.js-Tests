@@ -12,3 +12,32 @@ for (var i=0;i<textboxInfo.img.data.length;i+=4)
 The protagonist is detached from reality. Everything he experiences doesn't
 seem to reflect what others see. He is trying to find a way to synchronize
 his feelings with those around him, but it is not an easy task!
+
+{
+  - rodney_d == 0 ?
+    Hi, I'm {shk}Rodney{shk} and I've lost my {clr3}kidney{clr3}. 
+    {pg}
+    You know, I used to be a singer. Now I'm just an old man...
+    {pg}
+    ... walking around like a ghost the streets of Glasgow ...
+    {pg}
+    Please, tell me! Tell me what did I do wrong?
+    {pg}
+    Did I sing too high? Have I sunk too low? 
+    {pg}
+    Just don't tell me you don't know...
+    {pg}
+    {rodney_d = 1}
+}{
+    - { rodney_d == 1 ?}
+        - {item "1"} ?
+            [Give {clr3}answers{clr3} to {shk}Rodney{shk}]
+            {pg}
+            {shk}Oh... Thanks...{shk}
+            {pg}
+            I should be feeling better now... still, why does it feel like something's missing?
+            {item "1" 0}
+            {rodney_d = 2}
+        - else ?
+            Can you hear me?
+}
