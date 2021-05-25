@@ -6,3 +6,9 @@ for (var i=0;i<textboxInfo.img.data.length;i+=4)
     textboxInfo.img.data[i+2]=255;
     textboxInfo.img.data[i+3]=255;
 }
+
+// Ideas for a story
+
+The protagonist is detached from reality. Everything he experiences doesn't
+seem to reflect what others see. He is trying to find a way to synchronize
+his feelings with those around him, but it is not an easy task!
