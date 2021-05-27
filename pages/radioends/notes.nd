@@ -18,7 +18,6 @@ Cornerstone (Stone) -> Pietrangolare (Petra)
 Frame -> Cornice
 Grame -> Pernice
 
-
 !!! OGGETTI
 
 I Frame (le Cornici) sono esseri misteriosi, ma gentili. Possono essere tenuti nel palmo della mano,
@@ -52,6 +51,7 @@ TODO:
   Give {clr3}answer{clr3} ({clr3}{printSprite "A"}{clr3})
 - Cambiare tutti i dialoghi con a capo invece di page break
 - Cambiare Give Question con Ask Question?
+- Fix bug su Framma questions
 
 ***
 
@@ -82,6 +82,8 @@ TODO
 
 !!! CLIPBOARD
 
+- Fai capire che l'esperienza è conclusa,
+' Passsaggio brusco alla fine
 - Sprite che sembrano muri perché sono simili agli sprite dei muri, ma invece permettono di passare
 
 {clr3}grame{clr3} ({clr3}{printItem "2"}{clr3})
