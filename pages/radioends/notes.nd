@@ -43,10 +43,15 @@ triste e dubbioso. Se Roboris gli consegnerà delle risposte, Rodney lo farà pa
 
 Un altro personaggio che è possibile incontrare è Cornerstone
 
-CORREZIONI:
+
+TODO:
 - non rendere esplicito ciò che dice Roboris a Framma, ma mostrarlo
   solo attraverso le risposte che lei gli dà.
 - non usare il termine 'man' o 'uomo' nel dialogo di Rodney
+- cambiare tutti i Give Answer con
+  Give {clr3}answer{clr3} ({clr3}{printSprite "A"}{clr3})
+- Cambiare tutti i dialoghi con a capo invece di page break
+- Cambiare Give Question con Ask Question?
 
 ***
 
@@ -64,9 +69,15 @@ Il ragazzo sta per entrare in una casa stregata, dove è stato invitato dalla su
 
 Rodney entra nella torre e incontra Gramma, una fiammella in cerca di grames
 
+
+TODO:
+- Completare dialogo con Cornerstone
+
 ---
 
 !!! CLIPBOARD
+
+- Sprite che sembrano muri perché sono simili agli sprite dei muri, ma invece permettono di passare
 
 // fill text box with black
 for (var i=0;i<textboxInfo.img.data.length;i+=4)
