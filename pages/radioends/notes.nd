@@ -1,0 +1,212 @@
+https://github.com/seleb/bitsy-hacks
+
+***
+
+!!! PERSONAGGI
+
+! Roboris: un albero artificiale [protag della prima scena (RADIO)]
+! Rodney: un essere a forma di sedia, pieno di dubbi e sconforto [protag della seconda scena (END)]
+! Framma: aiutante di Roboris nella prima scena, gli vende un Frame se domandata
+! Cornerstone: un personaggio secondario, bloccato nel suo ruolo secondario
+
+Nomi in italiano:
+Roboris -> Pino; 
+Rodney - > René;
+Framma -> Berenice; 
+Cornerstone (Stone) -> Pietrangolare (Petra)
+
+Frame -> Cornice
+Grame -> Pernice
+
+
+!!! OGGETTI
+
+I Frame (le Cornici) sono esseri misteriosi, ma gentili. Possono essere tenuti nel palmo della mano,
+ma quando vi si guarda dentro vi si può scorgere l'universo. Un po' come quando si guarda a lungo dentro a un torrente.
+
+
+***
+
+!!! PRIMO ATTO (RADIO)
+
+La scena viene introdotta con una citazione di Moondog da "Stamping Ground"
+> "Machines were mice and men were lions once upon a time
+> But now that it's the opposite it's twice upon a time"
+
+Il protagonista è un albero artificiale, Roboris. Non parla molto.
+
+Roboris incontra Framma, una fiammella che vende Cornici (Frame).
+Le Cornici in questo mondo non servono per racchiudere quadri, ma sono esseri senzienti.
+
+Nel percorso Roboris incontra Rodney, una figura a forma di sedia. Rodney è
+triste e dubbioso. Se Roboris gli consegnerà delle risposte, Rodney lo farà passare.
+
+Un altro personaggio che è possibile incontrare è Cornerstone
+
+CORREZIONI:
+- non rendere esplicito ciò che dice Roboris a Framma, ma mostrarlo
+  solo attraverso le risposte che lei gli dà.
+- non usare il termine 'man' o 'uomo' nel dialogo di Rodney
+
+***
+
+!!! SECONDO ATTO (END)
+
+La scena è introdotta con una citazione di Disney’s Chilling, Thrilling Sounds of the Haunted House
+> "You are a bold and courageous person, afraid of nothing. 
+> High on a hilltop near your home, there stands a dilapidated old mansion. 
+> Some say the place is haunted, but you don't believe in such myths. 
+> One dark and stormy night, a light appears in the topmost window in a tower of the old house.
+> You decide to investigate. And you never return..."
+
+Il protagonista è Rodney, un essere a forma di sedia. Rodney è nel fiore degli anni, pieno di energia e speranze. 
+Il ragazzo sta per entrare in una casa stregata, dove è stato invitato dalla sua amica Stone per trascorrere il fine settimana.
+
+Rodney entra nella torre e incontra Gramma, una fiammella in cerca di grames
+
+---
+
+!!! CLIPBOARD
+
+// fill text box with black
+for (var i=0;i<textboxInfo.img.data.length;i+=4)
+{
+    textboxInfo.img.data[i+0]=255;
+    textboxInfo.img.data[i+1]=255;
+    textboxInfo.img.data[i+2]=255;
+    textboxInfo.img.data[i+3]=255;
+}
+
+{
+  - {item "0"} == 1 ?
+    ...
+  - else ?
+  {
+  - grm_i == false ?
+Hi. My name is Gramma.
+
+I'm looking for grames.
+
+If you find any, please bring me some.
+'Why?', you say? 
+
+Because you are a good being. That's why...
+    {grm_i = true}
+  - else ?
+'What is a grame?', you say?
+
+It's something quite similar to a frame, but less friendly.
+Though, what it actually is, well... vastly depends on you.
+  }
+}
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+!!! IDEE PER STORIA
+
+The protagonist is detached from reality. Everything he experiences doesn't
+seem to reflect what others see. He is trying to find a way to synchronize
+his feelings with those around him, but it is not an easy task!
+
+This is bullshit art, if it's art of any kind.
+
+26/5/21 - La fiera della vanità
+
+Certe persone hanno delle belle idee, talento e si impegnano. Altre, come me
+possono solo metterci l'impegno. Non so dove andrà a finire tutto il tempo
+che sto perdendo facendo ciò che faccio. Non mi sembra mai comunque abbastanza
+e mi chiedo cosa potrei fare per metterci ancora più impegno, ancora più
+tempo e dedizione,
+ma alcune persone hanno belle idee e talento e si impegnano.
+Io ci posso solo mettere l'impegno.
+Forse tra qualche mese o anno mi fermerò e mi chiederò perché lo sto facendo,
+oppure già il fatto che me lo stia chiedendo mette in luce la possibilità
+che io stia sbagliando.
+Le illusioni, le immagini che la mia mente produce mi guidano verso questa
+fiammella, verso la speranza di essere notato e di star facendo qualcosa
+che abbia senso, che sia significativo e memorabile per molti altri.
+Si tratta di una speranza vana, e comunque effimera, ma ce l'ho dentro
+e non la posso negare. Non la posso reprimere, perché anche se lo faccio
+lei mi si ripresenta sotto nuove forme di narcisismo.
+Mi chiedo ancora, allora, se dovrei mollare tutto e fare una vita senza
+sogni complicati, paranoie, desideri irreali, e tenermi quelli
+un po' più semplici: avere figli, bere al sabato sera con gli amici,
+migliorare in qualche hobby, desiderare la donna di un altro.
+Non sono per niente semplici. Anzi, forse è più facile desiderare
+il successo e la fama "immortale" che concentrarsi su come risolvere
+problemi contingenti, necessari, inevitabili, come
+l'invecchiamento, i silenzi, pagare le tasse.
+Non mi riesco a dare una risposta anche se, di nuovo da dentro, mi stuzzica
+la vocina dicendomi che non devo mollare e che se taglio la corda ora
+me ne pentirò.
+Fino a qualche anno fa non avevo neanche mai provato a creare qualcosa di complesso
+quanto quelle tre cazzate che sono riuscito a fare negli ultimi mesi; quei tre giochi
+non finiti, rozzi e rotti, brutti, insignificanti agli occhi di chiunque a parte me.
+
+Dove va a finire questo discorso? Ogni discorso ha un inizio e spesso anche molto
+ad effetto, per acchiappare il lettore. La fine invece non si presenta con la stessa
+immediatezza con cui nasce un inizio.
+
+
+Dove va a finire questa canzone
+Si trascina senza sapere dove andrà a morire.
+E vorrebbe esplodere più forte di quando è nata.
+L'energia va e non si mantiene.
+
+Se non avessi mai provato a dire cose vere
+a rianimare questa faccia tramortita
+sedata, contraffatta, non raggiante,
+forse avrei scritto roba meno tediosa.
+
+Ora scriverei canzoni d'amore.
+Mi lascerei cadere.
+Starei scrivendo una storia inventata
+che esplode più forte di una patata.
+
+Ma invece mi sono letto libri brutti
+libri che parlano di uomini inetti.
+
+Solare fa rima con volare,
+che a sua volta quando non sa che fare
+fa rima con bipolare.
+
+L'ultima strofa infine non può essere evitata
+e non voglio fare un'altra rima con patata,
+come ci si potrebbe aspettare.
+
+Vorrei finirla in modo divertente
+In un modo che faccia ridere la gente
+e prendere tutti a torte in faccia
+
+ma non sono bravo nelle conclusioni
+
+
+Insomma, non so scrivere poesie? Per qualche anno ci ho provato ed ora
+quando mi ci metto vengono fuori solo parole sconnesse.
+No, non sono mai stato bravo. Però ci ho provato.
+Mi sono impegnato un po'.
+Mi impegnerò ancora un po'.
+Almeno fino ai 35.
+Poi si vedrà.
