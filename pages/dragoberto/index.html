@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy Dragoberto's 60s</title>
     <link rel="shortcut icon" href="#" />
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css" />
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/master/dist/aframe-orbit-controls-component.min.js"></script>
     <script>
@@ -83,9 +83,7 @@
         },
       });
     </script>
-    <style>
-
-    </style>
+    <style></style>
   </head>
 
   <body>
@@ -435,7 +433,11 @@
         </a-entity>
       </a-scene>
     </div>
-    <div id="footer"><button onclick="changeModel()">Pedalation!</button></div>
+    <div id="footer-container">
+      <div id="footer">
+        <a class="button" onclick="changeModel()">continua</a>
+      </div>
+    </div>
 
     <script>
       var audio = new Audio("audio/TheManInMe.mp3");
