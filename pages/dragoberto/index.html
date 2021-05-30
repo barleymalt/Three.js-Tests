@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy Dragoberto's 60s</title>
     <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="main.css">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/master/dist/aframe-orbit-controls-component.min.js"></script>
     <script>
@@ -83,31 +84,26 @@
       });
     </script>
     <style>
-      #embeddedScene {
-        width: 90;
-        height: 80vh;
-      }
-      .a-loader-title {
-        color: black;
-        font-family: monospace;
-      }
+
     </style>
   </head>
 
   <body>
     <div id="embeddedScene">
       <a-scene
-        embedded
         background="color: #FAFAFA"
         vr-mode-ui="enabled: false"
         loading-screen="dotsColor: red; backgroundColor: black"
       >
         <a-assets>
           <!-- IMAGES -->
-          <img id="intro" src="images/berto.JPG" />
+          <img id="introBerto" src="images/berto.JPG" />
+          <img id="introFunghi" src="images/funghi.png" />
+          <img id="introCibo" src="images/cibo.png" />
           <img id="moto" src="images/moto.JPG" />
           <img id="famiglia" src="images/famiglia.JPG" />
           <img id="jacopo" src="images/jacopo.JPG" />
+          <img id="riccardo" src="images/riccardo.png" />
           <img id="dragoberto" src="images/dragoberto.JPG" />
 
           <!-- MODELS -->
@@ -135,11 +131,13 @@
         >
         </a-entity>
 
-        <!-- INTRO [BERTO] -->
+        <a-entity id="camera-target" position="0 4 0"></a-entity>
+
+        <!-- INTRO [SKI] -->
         <a-entity
           id="modelIntro"
           gltf-model="#skiModel"
-          lambert="color: #FA824C"
+          lambert="color: #FF495C"
           animation="
           property: object3D.rotation.y;
           from: -30
@@ -149,36 +147,52 @@
           easing: easeInOutQuad;
           loop: true"
         >
-          <a-entity
-            id="camera-target-2"
-            position="0 1.3 .7"
-            rotation="-10 45 10"
-            scale="3 3 3"
-          >
-            <!-- Text Header -->
-            <a-entity
-              text="
-                value: Tonton Dagoberte
-                Zio Dragoberto
-                Uncle Dragonbert; 
-                color: #5E4955; 
-                shader: msdf; 
-                font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
-                align: right"
-              scale="4 4 4"
-              position=".9 0 0.6"
-              rotation="0 180 0"
-            ></a-entity>
-
+          <a-entity position="0 1.3 .7" rotation="-10 45 16" scale="3 3 3">
             <!-- Image Container -->
             <a-box
-              color="#5BC0BE"
+              color="#256EFF"
               shader="flat"
               position="0 0 .7"
               scale="2.56806 1.93087 .1"
             >
               <a-image
-                src="#intro"
+                src="#introBerto"
+                position="0 0 .54"
+                scale=".95 .95 .95"
+              ></a-image
+            ></a-box>
+          </a-entity>
+
+          <a-entity position="-1.4 3 -.5" rotation="-30 -120 3" scale="2 2 2">
+            <!-- Image Container -->
+            <a-box
+              color="#46237A"
+              shader="flat"
+              position="0 0 .7"
+              scale="1.9 2.4 .1"
+            >
+              <a-image
+                src="#introFunghi"
+                position="0 0 .54"
+                scale=".95 .95 .95"
+              ></a-image
+            ></a-box>
+          </a-entity>
+
+          <a-entity
+            position="1.4 7 -.8"
+            rotation="-30 130 3"
+            scale="1.5 1.5 1.5"
+          >
+            <!-- Image Container -->
+            <a-box
+              color="#3DDC97"
+              shader="flat"
+              position="0 0 .7"
+              scale="1.9 2.4 .1"
+            >
+              <a-image
+                src="#introCibo"
                 position="0 0 .54"
                 scale=".95 .95 .95"
               ></a-image
@@ -201,23 +215,20 @@
             easing: easeInOutQuad;
             loop: true"
         >
-          <a-entity
-            id="camera-target"
-            position="-1.5 2 0.00001"
-            rotation="-43 0 10"
-          >
+          <a-entity position="-2 3 0.00001" rotation="-43 0 10" scale="2 2 2">
             <!-- Text Header -->
-            <a-entity
-              text="
-                value: Dagoberte avec la moto,
-                il a fait un beau coup
-                de girettes; 
-                color: #2D728F; 
-                shader: msdf; 
-                font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; align: right"
-              scale="4 4 4"
-              position=".9 0 0.6"
-              rotation="0 180 0"
+            <a-entity position="1.2 1.5 0.1" scale="3 3 3">
+              <a-entity
+                text="
+                    value: Tonton Dagoberte
+                    Zio Dragoberto
+                    Uncle Dragonbert; 
+                    color: #342E37; 
+                    shader: msdf; 
+                    font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
+                    align: center"
+                position="0 0 .51"
+              ></a-entity
             ></a-entity>
 
             <!-- Image Container -->
@@ -251,24 +262,20 @@
           easing: easeInOutQuad;
           loop: true"
         >
-          <a-entity
-            id="camera-target-2"
-            position="0 1.3 .7"
-            rotation="-23 0 10"
-          >
+          <a-entity position="0 1.3 -.7" rotation="-23 180 10" scale="2 2 2">
             <!-- Text Header -->
-            <a-entity
-              text="
-                value: Tonton Dagoberte
-                Zio Dragoberto
-                Uncle Dragonbert; 
-                color: #5E4955; 
-                shader: msdf; 
-                font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
-                align: right"
-              scale="4 4 4"
-              position=".9 0 0.6"
-              rotation="0 180 0"
+            <a-entity position="1.2 1.5 0.1" scale="3 3 3">
+              <a-entity
+                text="
+                    value: Tonton Dagoberte
+                    Zio Dragoberto
+                    Uncle Dragonbert; 
+                    color: #342E37; 
+                    shader: msdf; 
+                    font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
+                    align: center"
+                position="0 0 .51"
+              ></a-entity
             ></a-entity>
 
             <!-- Image Container -->
@@ -287,7 +294,7 @@
           </a-entity>
         </a-entity>
 
-        <!-- BIKE THREE [JACOPO] -->
+        <!-- BIKE THREE [JACOPO e RICCARDO] -->
         <a-entity
           id="modelJacopo"
           gltf-model="#bike3Model"
@@ -305,20 +312,54 @@
             easing: easeInOutQuad;
             loop: true"
         >
-          <a-entity id="camera-target-2" position="-.8 2 -.7" rotation="0 0 0">
+          <!-- JACOPO -->
+          <a-entity position="-1.5 1.5 .1" rotation="0 180 0">
             <!-- Text Header -->
-            <a-entity
-              text="
-              value: Tonton Dagoberte
-              Zio Dragoberto
-              Uncle Dragonbert; 
-              color: #342E37; 
-              shader: msdf; 
-              font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
-              align: right"
-              scale="4 4 4"
-              position="1.2 0 0.6"
-              rotation="0 180 0"
+            <a-entity position="1.2 1.5 0.1" scale="3 3 3">
+              <a-entity
+                text="
+                value: Tonton Dagoberte
+                Zio Dragoberto
+                Uncle Dragonbert; 
+                color: #342E37; 
+                shader: msdf; 
+                font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
+                align: center"
+                position="0 0 .51"
+              ></a-entity
+            ></a-entity>
+
+            <!-- Image Container -->
+            <a-box
+              color="#772F1A"
+              shader="flat"
+              position="0 0 .7"
+              scale="2.56806 1.93087 .1"
+            >
+              <a-image
+                src="#jacopo"
+                position="0 0 .54"
+                scale=".95 .95 .95"
+              ></a-image>
+              <a-text></a-text>
+            </a-box>
+          </a-entity>
+
+          <!-- RICCARDO -->
+          <a-entity position="-.3 3 -.7" rotation="0 0 0">
+            <!-- Text Header -->
+            <a-entity position="1.2 1.5 0.1" scale="3 3 3">
+              <a-entity
+                text="
+               value: Tonton Dagoberte
+               Zio Dragoberto
+               Uncle Dragonbert; 
+               color: #342E37; 
+               shader: msdf; 
+               font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
+               align: center"
+                position="0 0 .51"
+              ></a-entity
             ></a-entity>
 
             <!-- Image Container -->
@@ -326,10 +367,10 @@
               color="#3C91E6"
               shader="flat"
               position="0 0 .7"
-              scale="2.56806 1.93087 .1"
+              scale="1.9 2.56 .1"
             >
               <a-image
-                src="#jacopo"
+                src="#riccardo"
                 position="0 0 .54"
                 scale=".95 .95 .95"
               ></a-image>
@@ -357,23 +398,23 @@
             loop: true"
         >
           <a-entity
-            id="camera-target-2"
             position="-2.8 3 -.35"
             rotation="-20 -70 10"
+            scale="1.5 1.5 1.5"
           >
             <!-- Text Header -->
-            <a-entity
-              text="
-              value: Tonton Dagoberte
-              Zio Dragoberto
-              Uncle Dragonbert; 
-              color: #D7EBBA; 
-              shader: msdf; 
-              font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
-              align: right"
-              scale="4 4 4"
-              position="1.2 0 0.6"
-              rotation="0 180 0"
+            <a-entity position="1.2 1.5 0.1" scale="3 3 3">
+              <a-entity
+                text="
+                    value: Tonton Dagoberte
+                    Zio Dragoberto
+                    Uncle Dragonbert; 
+                    color: #342E37; 
+                    shader: msdf; 
+                    font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
+                    align: center"
+                position="0 0 .51"
+              ></a-entity
             ></a-entity>
 
             <!-- Image Container -->
@@ -394,7 +435,7 @@
         </a-entity>
       </a-scene>
     </div>
-    <div><button onclick="changeModel()">Pedalation!</button></div>
+    <div id="footer"><button onclick="changeModel()">Pedalation!</button></div>
 
     <script>
       var audio = new Audio("audio/TheManInMe.mp3");
