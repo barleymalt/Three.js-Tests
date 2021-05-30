@@ -15,12 +15,14 @@
         // Disable all models
         var cam = document.querySelector("#modelMoto");
         cam.setAttribute("visible", false);
+        var cam = document.querySelector("#modelDragoberto");
+        cam.setAttribute("visible", false);
         var cam = document.querySelector("#modelFamiglia");
         cam.setAttribute("visible", false);
         var cam = document.querySelector("#modelJacopo");
         cam.setAttribute("visible", false);
 
-        if (++index > 2) index = 0;
+        if (++index > 3) index = 0;
 
         // Enable next model
         switch (index) {
@@ -29,10 +31,14 @@
             cam.setAttribute("visible", true);
             break;
           case 1:
-            var cam = document.querySelector("#modelFamiglia");
+            var cam = document.querySelector("#modelDragoberto");
             cam.setAttribute("visible", true);
             break;
           case 2:
+            var cam = document.querySelector("#modelFamiglia");
+            cam.setAttribute("visible", true);
+            break;
+          case 3:
             var cam = document.querySelector("#modelJacopo");
             cam.setAttribute("visible", true);
             break;
@@ -75,23 +81,36 @@
         width: 90;
         height: 80vh;
       }
+      .a-loader-title {
+        color: black;
+        font-family: monospace;
+      }
     </style>
   </head>
 
   <body>
     <div id="embeddedScene">
-      <a-scene 
-      embedded
-      background="color: #FAFAFA" 
-      vr-mode-ui="enabled: false" 
-      loading-screen="dotsColor: red; backgroundColor: black">
+      <a-scene
+        embedded
+        background="color: #FAFAFA"
+        vr-mode-ui="enabled: false"
+        loading-screen="dotsColor: red; backgroundColor: black"
+      >
         <a-assets>
+          <!-- IMAGES -->
           <img id="moto" src="images/moto.JPG" />
           <img id="famiglia" src="images/famiglia.JPG" />
           <img id="jacopo" src="images/jacopo.JPG" />
+          <img id="dragoberto" src="images/dragoberto.JPG" />
+
+          <!-- MODELS -->
           <a-asset-item id="bike1Model" src="models/bike1.glb"></a-asset-item>
           <a-asset-item id="bike2Model" src="models/bike2.glb"></a-asset-item>
           <a-asset-item id="bike3Model" src="models/bike3.glb"></a-asset-item>
+          <a-asset-item id="bike4Model" src="models/bike4.glb"></a-asset-item>
+
+          <!-- AUDIO -->
+          <audio id="audio" src="audio/TheManInMe.mp3" preload="auto"></audio>
         </a-assets>
 
         <!-- Orbit Camera -->
@@ -101,7 +120,7 @@
           position="0 0 50"
           orbit-controls="
              autoRotate: false;
-             target: #camera-target-1;
+             target: #camera-target;
              enableDamping: true;
              dampingFactor: 0.25;
              rotateSpeed:0.14;
@@ -111,6 +130,8 @@
         >
         </a-entity>
 
+        <a-sound src="#audio" loop="true" autoplay="true" on="#audio" volume="1"></a-sound>
+
         <!-- BIKE ONE [MOTO] -->
         <a-entity
           id="modelMoto"
@@ -118,7 +139,7 @@
           position="0 0 0"
           rotation="0 0 0"
           scale="1 1 1"
-          lambert="color: #eb9486"
+          lambert="color: #FA824C"
           animation="
             property: object3D.rotation.y;
             from: -30
@@ -129,24 +150,34 @@
             loop: true"
         >
           <a-entity
-            id="camera-target-1"
+            id="camera-target"
             position="-1.5 2 0.00001"
             rotation="-43 0 10"
           >
+            <!-- Text Header -->
+            <a-entity
+              text="
+                value: Dagoberte avec la moto,
+                il a fait un beau coup
+                de girettes; 
+                color: #2D728F; 
+                shader: msdf; 
+                font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; align: right"
+              scale="4 4 4"
+              position=".9 0 0.6"
+              rotation="0 180 0"
+            ></a-entity>
+
+            <!-- Image Container -->
             <a-box
               color="#F3DE8A"
               shader="flat"
               position="0 0 .7"
-              scale="3 2.2 .1"
-            ></a-box>
-            <a-image
-              src="#moto"
-              position="0 0 .8"
-              scale="2.56806 1.93087 1.93087"
-              material=""
-              geometry=""
+              scale="2.56806 1.93087 .1"
             >
-            </a-image>
+              <a-image src="#moto" position="0 0 .54" scale=".95 .95 .95">
+              </a-image
+            ></a-box>
           </a-entity>
         </a-entity>
 
@@ -158,7 +189,7 @@
           position="0 0 0"
           rotation="0 0 0"
           scale="1 1 1"
-          lambert="color: #3A506B"
+          lambert="color: #C99DA3"
           animation="
           property: object3D.rotation.y;
           from: -30
@@ -170,26 +201,41 @@
         >
           <a-entity
             id="camera-target-2"
-            position="-1.5 2 .7"
-            rotation="-43 0 10"
+            position="0 1.3 .7"
+            rotation="-23 0 10"
           >
+            <!-- Text Header -->
+            <a-entity
+              text="
+                value: Tonton Dagoberte
+                Zio Dragoberto
+                Uncle Dragonbert; 
+                color: #5E4955; 
+                shader: msdf; 
+                font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
+                align: right"
+              scale="4 4 4"
+              position=".9 0 0.6"
+              rotation="0 180 0"
+            ></a-entity>
+
+            <!-- Image Container -->
             <a-box
               color="#5BC0BE"
               shader="flat"
               position="0 0 .7"
-              scale="3 2.2 .1"
+              scale="2.56806 1.93087 .1"
+            >
+              <a-image
+                src="#famiglia"
+                position="0 0 .54"
+                scale=".95 .95 .95"
+              ></a-image
             ></a-box>
-            <a-image
-              src="#famiglia"
-              position="0 0 .8"
-              scale="2.56806 1.93087 1.93087"
-              material=""
-              geometry=""
-            ></a-image>
           </a-entity>
         </a-entity>
 
-        <!-- BIKE THREE [FAMIGLIA] -->
+        <!-- BIKE THREE [JACOPO] -->
         <a-entity
           id="modelJacopo"
           gltf-model="#bike3Model"
@@ -197,7 +243,58 @@
           position="0 0 0"
           rotation="0 0 0"
           scale="1 1 1"
-          lambert="color: #3A506B"
+          lambert="color: #9FD356"
+          animation="
+            property: object3D.rotation.y;
+            from: -30
+            to: 30; 
+            dur: 10000; 
+            dir: alternate;
+            easing: easeInOutQuad;
+            loop: true"
+        >
+          <a-entity id="camera-target-2" position="-.8 2 -.7" rotation="0 0 0">
+            <!-- Text Header -->
+            <a-entity
+              text="
+              value: Tonton Dagoberte
+              Zio Dragoberto
+              Uncle Dragonbert; 
+              color: #342E37; 
+              shader: msdf; 
+              font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
+              align: right"
+              scale="4 4 4"
+              position="1.2 0 0.6"
+              rotation="0 180 0"
+            ></a-entity>
+
+            <!-- Image Container -->
+            <a-box
+              color="#3C91E6"
+              shader="flat"
+              position="0 0 .7"
+              scale="2.56806 1.93087 .1"
+            >
+              <a-image
+                src="#jacopo"
+                position="0 0 .54"
+                scale=".95 .95 .95"
+              ></a-image>
+              <a-text></a-text>
+            </a-box>
+          </a-entity>
+        </a-entity>
+
+        <!-- BIKE FOUR [DRAGOBERTO] -->
+        <a-entity
+          id="modelDragoberto"
+          gltf-model="#bike4Model"
+          visible="false"
+          position="0 0 0"
+          rotation="0 0 0"
+          scale="1 1 1"
+          lambert="color: #9AD2CB"
           animation="
             property: object3D.rotation.y;
             from: -30
@@ -209,22 +306,38 @@
         >
           <a-entity
             id="camera-target-2"
-            position="-1.5 2 .7"
-            rotation="-43 0 10"
+            position="-2.8 3 -.35"
+            rotation="-20 -70 10"
           >
+            <!-- Text Header -->
+            <a-entity
+              text="
+              value: Tonton Dagoberte
+              Zio Dragoberto
+              Uncle Dragonbert; 
+              color: #D7EBBA; 
+              shader: msdf; 
+              font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
+              align: right"
+              scale="4 4 4"
+              position="1.2 0 0.6"
+              rotation="0 180 0"
+            ></a-entity>
+
+            <!-- Image Container -->
             <a-box
-              color="#5BC0BE"
+              color="#472836"
               shader="flat"
               position="0 0 .7"
-              scale="3 2.2 .1"
-            ></a-box>
-            <a-image
-              src="#jacopo"
-              position="0 0 .8"
-              scale="2.56806 1.93087 1.93087"
-              material=""
-              geometry=""
-            ></a-image>
+              scale="2.56806 1.93087 .1"
+            >
+              <a-image
+                src="#dragoberto"
+                position="0 0 .54"
+                scale=".95 .95 .95"
+              ></a-image>
+              <a-text></a-text>
+            </a-box>
           </a-entity>
         </a-entity>
       </a-scene>
