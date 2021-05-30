@@ -17,8 +17,10 @@
         cam.setAttribute("visible", false);
         var cam = document.querySelector("#modelFamiglia");
         cam.setAttribute("visible", false);
+        var cam = document.querySelector("#modelJacopo");
+        cam.setAttribute("visible", false);
 
-        if (++index > 1) index = 0;
+        if (++index > 2) index = 0;
 
         // Enable next model
         switch (index) {
@@ -28,6 +30,10 @@
             break;
           case 1:
             var cam = document.querySelector("#modelFamiglia");
+            cam.setAttribute("visible", true);
+            break;
+          case 2:
+            var cam = document.querySelector("#modelJacopo");
             cam.setAttribute("visible", true);
             break;
         }
@@ -181,8 +187,8 @@
 
         <!-- BIKE THREE [FAMIGLIA] -->
         <a-entity
-          id="modelFamiglia"
-          gltf-model="#bike2Model"
+          id="modelJacopo"
+          gltf-model="#bike3Model"
           visible="false"
           position="0 0 0"
           rotation="0 0 0"
@@ -209,7 +215,7 @@
               scale="3 2.2 .1"
             ></a-box>
             <a-image
-              src="#famiglia"
+              src="#jacopo"
               position="0 0 .8"
               scale="2.56806 1.93087 1.93087"
               material=""
