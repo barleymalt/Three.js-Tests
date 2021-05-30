@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Dragoberto's 60s</title>
+    <link rel="shortcut icon" href="#" />
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/master/dist/aframe-orbit-controls-component.min.js"></script>
+    <script>
+      function changeModel() {
+        var cam = document.querySelector("#modelMoto");
+        cam.setAttribute("visible", false);
+        var cam = document.querySelector("#modelFamiglia");
+        cam.setAttribute("visible", true);
+      }
+
+      AFRAME.registerComponent("lambert", {
+        schema: {
+          color: {
+            default: "#fff",
+          },
+        },
+        init: function () {},
+        update: function (oldData) {
+          let mesh = this.el.getObject3D("mesh");
+          if (!mesh) {
+            this.el.addEventListener("model-loaded", (e) => {
+              this.update.call(this, this.data);
+            });
+            return;
+          }
+          this.changeColor(mesh, this.data.color);
+        },
+        changeColor: function (mesh, color) {
+          var material = new THREE.MeshBasicMaterial({
+            color: color,
+          });
+
+          mesh.traverse(function (node) {
+            if (node.type != "Mesh") return;
+            let tmp = node.material;
+            node.material = material;
+            tmp.dispose();
+          });
+        },
+      });
+    </script>
+    <style>
+      #embeddedScene {
+        width: 90;
+        height: 80vh;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="embeddedScene">
+      <a-scene background="color: #FAFAFA" vr-mode-ui="enabled: false" embedded>
+        <a-assets>
+          <img id="moto" src="images/moto.jpg" />
+          <img id="famiglia" src="images/famiglia.JPG" />
+          <img id="famiglia" src="images/jacopo.JPG" />
+          <a-asset-item id="bike1Model" src="models/bike1.glb"></a-asset-item>
+          <a-asset-item id="bike2Model" src="models/bike2.glb"></a-asset-item>
+          <a-asset-item id="bike3Model" src="models/bike3.glb"></a-asset-item>
+        </a-assets>
+
+        <!-- Orbit Camera -->
+        <a-entity
+          id="camera"
+          camera
+          position="0 0 50"
+          orbit-controls="
+             autoRotate: false;
+             target: #camera-target-1;
+             enableDamping: true;
+             dampingFactor: 0.25;
+             rotateSpeed:0.14;
+             minDistance:3;
+             maxDistance:15;"
+          mouse-cursor="pointerLockEnabled = true"
+        >
+        </a-entity>
+
+        <!-- BIKE ONE [MOTO] -->
+        <a-entity
+          id="modelMoto"
+          gltf-model="#bike1Model"
+          position="0 0 0"
+          rotation="0 0 0"
+          scale="1 1 1"
+          lambert="color: #eb9486"
+          animation="
+            property: object3D.rotation.y;
+            from: -30
+            to: 30; 
+            dur: 10000; 
+            dir: alternate;
+            easing: easeInOutQuad;
+            loop: true"
+        >
+          <a-entity
+            id="camera-target-1"
+            position="-1.5 2 0.00001"
+            rotation="-43 0 10"
+          >
+            <a-box
+              color="#F3DE8A"
+              shader="flat"
+              position="0 0 .7"
+              scale="3 2.2 .1"
+            ></a-box>
+            <a-image
+              src="#moto"
+              position="0 0 .8"
+              scale="2.56806 1.93087 1.93087"
+              material=""
+              geometry=""
+            >
+            </a-image>
+          </a-entity>
+        </a-entity>
+
+        <!-- BIKE TWO [FAMIGLIA] -->
+        <a-entity
+          id="modelFamiglia"
+          gltf-model="#bike2Model"
+          visible="false"
+          position="0 0 0"
+          rotation="0 0 0"
+          scale="1 1 1"
+          lambert="color: #3A506B"
+          animation="
+          property: object3D.rotation.y;
+          from: -30
+          to: 30; 
+          dur: 10000; 
+          dir: alternate;
+          easing: easeInOutQuad;
+          loop: true"
+        >
+          <a-entity
+            id="camera-target-2"
+            position="-1.5 2 .7"
+            rotation="-43 0 10"
+          >
+            <a-box
+              color="#5BC0BE"
+              shader="flat"
+              position="0 0 .7"
+              scale="3 2.2 .1"
+            ></a-box>
+            <a-image
+              src="#famiglia"
+              position="0 0 .8"
+              scale="2.56806 1.93087 1.93087"
+              material=""
+              geometry=""
+            ></a-image>
+          </a-entity>
+        </a-entity>
+
+        <!-- BIKE THREE [FAMIGLIA] -->
+        <a-entity
+          id="modelFamiglia"
+          gltf-model="#bike2Model"
+          visible="false"
+          position="0 0 0"
+          rotation="0 0 0"
+          scale="1 1 1"
+          lambert="color: #3A506B"
+          animation="
+          property: object3D.rotation.y;
+          from: -30
+          to: 30; 
+          dur: 10000; 
+          dir: alternate;
+          easing: easeInOutQuad;
+          loop: true"
+        >
+          <a-entity
+            id="camera-target-2"
+            position="-1.5 2 .7"
+            rotation="-43 0 10"
+          >
+            <a-box
+              color="#5BC0BE"
+              shader="flat"
+              position="0 0 .7"
+              scale="3 2.2 .1"
+            ></a-box>
+            <a-image
+              src="#famiglia"
+              position="0 0 .8"
+              scale="2.56806 1.93087 1.93087"
+              material=""
+              geometry=""
+            ></a-image>
+          </a-entity>
+        </a-entity>
+      </a-scene>
+    </div>
+    <div><button onclick="changeModel()">Try it</button></div>
+  </body>
+</html>
