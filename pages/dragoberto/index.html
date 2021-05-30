@@ -9,11 +9,28 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/master/dist/aframe-orbit-controls-component.min.js"></script>
     <script>
+      let index = 0;
+
       function changeModel() {
+        // Disable all models
         var cam = document.querySelector("#modelMoto");
         cam.setAttribute("visible", false);
         var cam = document.querySelector("#modelFamiglia");
-        cam.setAttribute("visible", true);
+        cam.setAttribute("visible", false);
+
+        if (++index > 1) index = 0;
+
+        // Enable next model
+        switch (index) {
+          case 0:
+            var cam = document.querySelector("#modelMoto");
+            cam.setAttribute("visible", true);
+            break;
+          case 1:
+            var cam = document.querySelector("#modelFamiglia");
+            cam.setAttribute("visible", true);
+            break;
+        }
       }
 
       AFRAME.registerComponent("lambert", {
@@ -172,13 +189,13 @@
           scale="1 1 1"
           lambert="color: #3A506B"
           animation="
-          property: object3D.rotation.y;
-          from: -30
-          to: 30; 
-          dur: 10000; 
-          dir: alternate;
-          easing: easeInOutQuad;
-          loop: true"
+            property: object3D.rotation.y;
+            from: -30
+            to: 30; 
+            dur: 10000; 
+            dir: alternate;
+            easing: easeInOutQuad;
+            loop: true"
         >
           <a-entity
             id="camera-target-2"
@@ -202,6 +219,6 @@
         </a-entity>
       </a-scene>
     </div>
-    <div><button onclick="changeModel()">Try it</button></div>
+    <div><button onclick="changeModel()">Pedalation!</button></div>
   </body>
 </html>
