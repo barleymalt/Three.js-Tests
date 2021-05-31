@@ -8,14 +8,34 @@
   </head>
   <body>
     <a-scene>
-      <a-sky src="photo_studio_01.jpg" rotation="0 -130 0"></a-sky>
+      <a-sky src="photo_studio_01.jpg" rotation="0 0 0"></a-sky>
+
+      <a-entity
+        geometry="primitive: box; size: 1"
+        position="6 0 4.3"
+        animation="
+          dur: 30000;  
+          easing: linear; 
+          loop: -1;  
+          property: rotation;         
+          from: 0 0 0;  
+          to: 0 360 90"
+      ></a-entity>
 
       <a-text
         font="kelsonsans"
-        value="Puy de Sancy, France"
+        value="360 image"
         width="6"
         position="-2.5 0.25 -1.5"
-        rotation="0 15 0"
+        rotation="0 30 0"
+        animation="
+          dur: 30000;  
+          dir: alternate;
+          easing: linear; 
+          loop: -1;  
+          property: position;         
+          from: -2.5 0.25 -1.5;  
+          to: -2.5 0.65 -1.5"
       ></a-text>
     </a-scene>
   </body>
