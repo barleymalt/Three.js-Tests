@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!-- Icons made by
+<a href="https://smashicons.com/" title="Smashicons">Smashicons</a> from
+<a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> -->
 <html>
   <head>
     <meta charset="utf-8" />
@@ -8,80 +11,86 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <!-- <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script> -->
     <script src="https://unpkg.com/aframe-look-at-component@0.5.1/dist/aframe-look-at-component.min.js"></script>
-    <script>
-      AFRAME.registerComponent("hotspots", {
-        init: function () {
-          this.el.addEventListener("reloadspots", function (evt) {
-            //get the entire current spot group and scale it to 0
-            var currspotgroup = document.getElementById(evt.detail.currspots);
-            currspotgroup.setAttribute("scale", "0 0 0");
-
-            //get the entire new spot group and scale it to 1
-            var newspotgroup = document.getElementById(evt.detail.newspots);
-            newspotgroup.setAttribute("scale", "1 1 1");
-          });
-        },
-      });
-      AFRAME.registerComponent("spot", {
-        schema: {
-          linkto: { type: "string", default: "" },
-          spotgroup: { type: "string", default: "" },
-        },
-        init: function () {
-          //add image source of hotspot icon
-          this.el.setAttribute("src", "#hotspot");
-          //make the icon look at the camera all the time
-          this.el.setAttribute("look-at", "#cam");
-
-          var data = this.data;
-
-          this.el.addEventListener("click", function () {
-            //set the skybox source to the new image as per the spot
-            var sky = document.getElementById("skybox");
-            sky.setAttribute("src", data.linkto);
-
-            var spotcomp = document.getElementById("spots");
-            var currspots = this.parentElement.getAttribute("id");
-            //create event for spots component to change the spots data
-            spotcomp.emit("reloadspots", {
-              newspots: data.spotgroup,
-              currspots: currspots,
-            });
-          });
-        },
-      });
-    </script>
+    <script src="js/components.js"></script>
   </head>
   <body>
-    <a-scene>
+    <a-scene vr-mode-ui="enterVRButton: #VRButton;">
       <a-assets>
         <img id="hotspot" src="img/hotspot-icon.png" />
         <img id="point1" src="img/photo_studio_01.jpg" />
         <img id="point2" src="img/puydesancy.jpg" />
+        <img id="point3" src="img/comfy_cafe.jpg" />
       </a-assets>
+
+      <a id="VRButton" href="#">
+        <img
+          src="#hotspot"
+          style="
+            position: fixed;
+            width: 42px;
+            height: 42px;
+            border: 0;
+            background-color: red;
+            z-index: 100;
+          "
+        />
+      </a>
 
       <a-sky id="skybox" src="#point1"></a-sky>
 
+      <!-- CAMERA -->
       <a-entity id="cam" camera position="0 1.6 0" look-controls>
         <a-entity
           cursor="
             fuse:true;
             fuseTimeout:2000"
+          raycaster="objects: .link"
           geometry="
             primitive:ring;
-            radiusInner:0.01;
-            radiusOuter:0.02"
+            thetaStart:-90;
+            thetaLength:360;
+            segmentsTheta:1;
+            radiusInner:0.0;
+            radiusOuter:0.05"
           position="0 0 -1.8"
           material="
             shader:flat;
-            color:#ff0000"
-          animation__mouseenter="
+            color:#ffffff"
+          animation__scaleEnter="
             property:scale;
-            from: 3 3 3;
-            to: .5 .5 .5;
-            ease:easeInBack;
+            startEvents:mouseenter;
+            to:.2 .2;
+            dur:2000"
+          animation__scaleLeave="
+            property:scale;
+            startEvents:mouseleave;
+            to:1 1;
+            dur:1000"
+          animation__colorEnter="
+            property:components.material.material.color;
+            startEvents:mouseenter;
+            type:color;
+            to:black;
+            dur:2000"
+          animation__colorLeave="
+            property:components.material.material.color;
+            startEvents:mouseleave;
+            type: color;
+            to:white;
+            dur:1000"
+          animation__segmentsEnter="
+            property:geometry.segmentsTheta;
+            easing:easeOutExpo;
+            to:20;
             startEvents:mouseenter;
             dur:2000;
+            loop:1"
+          animation__segmentsLeave="
+            property:geometry.segmentsTheta;
+            easing:easeInExpo;
+            to:0;
+            startEvents:mouseleave;
+            dur:1000;
             loop:1"
         >
         </a-entity>
@@ -90,18 +99,39 @@
       <a-entity id="spots" hotspots>
         <a-entity id="group-point1">
           <a-image
+            class="link"
             spot="
-            linkto: #point2;
-            spotgroup: group-point2"
+              linkto: #point2;
+              spotgroup: group-point2"
             position="-4 0 -10"
-          ></a-image>
+          >
+          </a-image>
         </a-entity>
+        <!-- ROOM TWO -->
         <a-entity id="group-point2" scale="0 0 0">
           <a-image
+            class="link"
             spot="
-            linkto: #point1;
-            spotgroup: group-point1"
+              linkto: #point1;
+              spotgroup: group-point1"
             position="-4 0 -10"
+          ></a-image>
+          <a-image
+            class="link"
+            spot="
+            linkto: #point3;
+            spotgroup: group-point3"
+            position="4 0 -10"
+          ></a-image>
+        </a-entity>
+        <!-- ROOM THREE -->
+        <a-entity id="group-point3" scale="0 0 0">
+          <a-image
+            class="link"
+            spot="
+              linkto: #point2;
+              spotgroup: group-point2"
+            position="4 0 -10"
           ></a-image>
         </a-entity>
       </a-entity>
