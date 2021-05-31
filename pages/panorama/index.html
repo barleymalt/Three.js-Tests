@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <title>360&deg; Image</title>
     <meta name="description" content="360&deg; Image - A-Frame" />
+    <link rel="shortcut icon" href="#" />
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script> -->
     <script src="https://unpkg.com/aframe-look-at-component@0.5.1/dist/aframe-look-at-component.min.js"></script>
     <script>
       AFRAME.registerComponent("hotspots", {
@@ -53,11 +55,12 @@
   <body>
     <a-scene>
       <a-assets>
+        <img id="hotspot" src="img/hotspot-icon.png" />
         <img id="point1" src="img/photo_studio_01.jpg" />
-        <img id="point1" src="img/puydesancy.jpg" />
+        <img id="point2" src="img/puydesancy.jpg" />
       </a-assets>
 
-      <a-sky src="#point1"></a-sky>
+      <a-sky id="skybox" src="#point1"></a-sky>
 
       <a-entity id="cam" camera position="0 1.6 0" look-controls>
         <a-entity
@@ -74,43 +77,34 @@
             color:#ff0000"
           animation__mouseenter="
             property:scale;
-            to:3 3 3;
+            from: 3 3 3;
+            to: .5 .5 .5;
+            ease:easeInBack;
             startEvents:mouseenter;
-            endEvents:mouseleave;
-            dir:reverse;
             dur:2000;
             loop:1"
         >
         </a-entity>
       </a-entity>
 
-      <a-entity
-        geometry="primitive: box; size: 1"
-        position="6 0 4.3"
-        animation="
-          dur: 30000;  
-          easing: linear; 
-          loop: -1;  
-          property: rotation;         
-          from: 0 0 0;  
-          to: 0 360 90"
-      ></a-entity>
-
-      <a-text
-        font="kelsonsans"
-        value="360 image"
-        width="6"
-        position="-2.5 0.25 -1.5"
-        rotation="0 30 0"
-        animation="
-          dur: 30000;  
-          dir: alternate;
-          easing: linear; 
-          loop: -1;  
-          property: position;         
-          from: -2.5 0.25 -1.5;  
-          to: -2.5 0.65 -1.5"
-      ></a-text>
+      <a-entity id="spots" hotspots>
+        <a-entity id="group-point1">
+          <a-image
+            spot="
+            linkto: #point2;
+            spotgroup: group-point2"
+            position="-4 0 -10"
+          ></a-image>
+        </a-entity>
+        <a-entity id="group-point2" scale="0 0 0">
+          <a-image
+            spot="
+            linkto: #point1;
+            spotgroup: group-point1"
+            position="-4 0 -10"
+          ></a-image>
+        </a-entity>
+      </a-entity>
     </a-scene>
   </body>
 </html>
