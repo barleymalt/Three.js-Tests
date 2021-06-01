@@ -64,30 +64,15 @@
           lambert="color: #FF495C"
           animation="
           property: object3D.rotation.y;
-          from: -30
+          from: -30;
           to: 30; 
           dur: 10000; 
           dir: alternate;
           easing: easeInOutQuad;
           loop: true"
         >
-          <a-entity position="0 1.3 .7" rotation="-10 45 16" scale="3 3 3">
-            <!-- Image Container -->
-            <a-box
-              color="#256EFF"
-              shader="flat"
-              position="0 0 .7"
-              scale="2.56806 1.93087 .1"
-            >
-              <a-image
-                src="#introBerto"
-                position="0 0 .54"
-                scale=".95 .95 .95"
-              ></a-image
-            ></a-box>
-          </a-entity>
-
-          <a-entity position="-1.4 3 -.5" rotation="-30 -120 3" scale="2 2 2">
+          <!-- FUNGHI -->
+          <a-entity position="0 2.5 1" rotation="-10 15 16" scale="2 2 2">
             <!-- Image Container -->
             <a-box
               color="#46237A"
@@ -103,11 +88,44 @@
             ></a-box>
           </a-entity>
 
+          <!-- PRIMO PIANO -->
+          <a-entity position="-1.4 3 -.5" rotation="-30 -140 3" scale="2 2 2">
+            <!-- Image Container -->
+            <a-box
+              color="#256EFF"
+              shader="flat"
+              position="0 0 .7"
+              scale="2.56806 1.93087 .1"
+            >
+              <a-image
+                src="#introBerto"
+                position="0 0 .54"
+                scale=".95 .95 .95"
+              ></a-image
+            ></a-box>
+          </a-entity>
+
+          <!-- CIBO -->
           <a-entity
             position="1.4 7 -.8"
             rotation="-30 130 3"
             scale="1.5 1.5 1.5"
           >
+            <!-- Text Container -->
+            <a-entity position="1.2 1.5 0.1" scale="3 3 3">
+              <a-entity
+                text="
+                    value: ''Cinque minuti Turco!''
+                    ''Hai detto due minuti
+                    cinque minuti fa...''; 
+                    color: #342E37; 
+                    shader: msdf; 
+                    font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
+                    align: center"
+                position="0 0 .51"
+              ></a-entity
+            ></a-entity>
+
             <!-- Image Container -->
             <a-box
               color="#3DDC97"
@@ -115,11 +133,8 @@
               position="0 0 .7"
               scale="1.9 2.4 .1"
             >
-              <a-image
-                src="#introCibo"
-                position="0 0 .54"
-                scale=".95 .95 .95"
-              ></a-image
+              <a-image src="#introCibo" position="0 0 .54" scale=".95 .95 .95">
+              </a-image
             ></a-box>
           </a-entity>
         </a-entity>
