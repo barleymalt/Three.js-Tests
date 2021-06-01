@@ -73,6 +73,12 @@ function changeButtonText(string1, string2) {
   }, 8000);
 }
 
+function playMusic(){
+    var audio = new Audio("audio/TheManInMe.mp3");
+    audio.loop = true;
+    audio.play();
+}
+
 // Register labert material
 AFRAME.registerComponent("lambert", {
   schema: {

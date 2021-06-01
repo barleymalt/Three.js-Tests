@@ -406,9 +406,15 @@
     </div>
 
     <script>
-      var audio = new Audio("audio/TheManInMe.mp3");
-      audio.loop = true;
-      audio.play();
+      // Call music start
+      playMusic();
+
+      useEffect(() => {
+        window.addEventListener("touchstart", () => {
+          document.getElementById("audio").muted = false;
+          document.getElementById("audio").play();
+        });
+      });
 
       // Call delay show button
       delayshowButton();
