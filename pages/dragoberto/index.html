@@ -363,7 +363,9 @@
       <button
         id="continue-btn"
         onclick="changeModel()"
-        ontouchend="this.onclick=stickyBtnFix"
+        ontouchend="
+        changeModel();
+        this.onclick=stickyBtnFix;"
       >
         tanti augusti!
       </button>
