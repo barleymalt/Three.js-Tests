@@ -409,13 +409,6 @@
       // Call music start
       playMusic();
 
-      useEffect(() => {
-        window.addEventListener("touchstart", () => {
-          document.getElementById("audio").muted = false;
-          document.getElementById("audio").play();
-        });
-      });
-
       // Call delay show button
       delayshowButton();
     </script>
