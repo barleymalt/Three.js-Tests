@@ -78,11 +78,9 @@ function playMusic() {
   audio.loop = true;
   audio.play();
 
-  useEffect(() => {
-    window.addEventListener("touchstart", () => {
-      audio.muted = false;
-      audio.play();
-    });
+  window.addEventListener("touchstart", () => {
+    audio.muted = false;
+    audio.play();
   });
 }
 
