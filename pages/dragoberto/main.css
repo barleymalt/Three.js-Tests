@@ -8,21 +8,36 @@
 
 #btn-container {
   position: fixed;
-  top: 50px;
+  bottom: 70px;
   width: 100%;
   text-align: center;
   z-index: 1;
 }
 
 #continue-btn {
-  background-color: firebrick;
-  color: honeydew;
+  display: inline-block;
+  padding: 0.1em 1em;
+  border: 0.05em solid rgb(31, 31, 31);
+  margin: 0 0.1em 0.1em 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: uppercase;
   font-family: "Oswald", sans-serif;
+  font-weight: 400;
   font-size: 2em;
-  border: none;
+  color: rgb(31, 31, 31);
+  text-align: center;
+  transition: all 0.05s;
 }
 
 #continue-btn:hover {
-  background-color: indianred;
-  color:rgb(0, 0, 0);
+  color: #dddddd;
+  border: 0em;
+  background-color: rgb(31, 31, 31);
+}
+
+#continue-btn:active {
+  color: rgb(31, 31, 31);
+  border: 0.01em;
+  background-color: rgb(255, 255, 255);
 }
