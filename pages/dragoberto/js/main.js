@@ -50,16 +50,25 @@ function stickyBtnFix() {
 function delayshowButton() {
   document.getElementById("continue-btn").style.display = "none";
 
-  setTimeout(function () {
+  lastTimedAction = setTimeout(function () {
     document.getElementById("continue-btn").style.display = "inline-block";
     changeButtonText("tanti augusti", "avanti");
   }, 5000);
 }
 
+let lastTimedAction;
+
 function changeButtonText(string1, string2) {
   document.getElementById("continue-btn").innerHTML = string1;
 
-  setTimeout(function () {
+  // Clear the timeout action before calling the delayed text change
+  if (lastTimedAction != null) {
+    clearTimeout(lastTimedAction);
+    lastTimedAction = null;
+  }
+
+  // Call the delayed change of text
+  lastTimedAction = setTimeout(function () {
     document.getElementById("continue-btn").innerHTML = string2;
   }, 8000);
 }
