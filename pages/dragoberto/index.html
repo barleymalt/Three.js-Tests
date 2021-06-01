@@ -434,13 +434,23 @@
       </a-scene>
     </div>
     <div id="btn-container">
-      <button id="continue-btn" onclick="changeModel()">AVANTI</button>
+      <button id="continue-btn" onclick="changeModel()" ontouchend="this.onclick=stickyBtnFix">AVANTI</button>
     </div>
 
     <script>
       var audio = new Audio("audio/TheManInMe.mp3");
       audio.loop = true;
       audio.play();
+
+      function stickyBtnFix() {
+        var el = this;
+        var par = el.parentNode;
+        var next = el.nextSibling;
+        par.removeChild(el);
+        setTimeout(function () {
+          par.insertBefore(el, next);
+        }, 0);
+      }
     </script>
   </body>
 </html>
