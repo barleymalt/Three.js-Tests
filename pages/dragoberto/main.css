@@ -1,51 +1,28 @@
-@media all and (max-width: 30em) {
-  #footer-container {
-    position: absolute;
-    bottom: 10%;
-    width: 100%;
-  }
-  a.button {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-@media all and (min-width: 30em) {
-  #footer-container {
-    position: absolute;
-    bottom: 10%;
-    width: 100%;
-  }
-}
-
-/* Button style */
-a.button {
-  padding: 0.7em 1.4em;
-  border: none;
-  border-radius: 0.15em;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-size: 2vw;
-  text-transform: uppercase;
-  font-weight: 400;
-  color: #bce7fd;
-  background-color: #db2763;
-  box-shadow: inset 0 -0.6em 0 -0.35em #b0db43;
-  text-align: center;
-}
-
-a.button:active {
-  top: 0.1em;
-}
-
-#footer {
-  display: table;
-  margin: 0 auto;
-  border: 1px solid #ffffff;
-}
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
 
 /* A-Frame CSS */
 .a-loader-title {
   color: black;
   font-family: monospace;
+}
+
+#btn-container {
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
+#continue-btn {
+  background-color: firebrick;
+  color: honeydew;
+  font-family: "Oswald", sans-serif;
+  font-size: 2em;
+  border: none;
+}
+
+#continue-btn:hover {
+  background-color: indianred;
+  color:rgb(0, 0, 0);
 }
