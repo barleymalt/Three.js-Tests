@@ -18,7 +18,7 @@ function changeModel() {
       break;
     case 1:
       document.querySelector("#modelMoto").setAttribute("visible", true);
-      changeButtonText("down on the corner", "avanti");
+      changeButtonText("willie the pimp", "avanti");
       break;
     case 2:
       document.querySelector("#modelDragoberto").setAttribute("visible", true);
@@ -26,11 +26,11 @@ function changeModel() {
       break;
     case 3:
       document.querySelector("#modelJacopo").setAttribute("visible", true);
-      changeButtonText("travelin' band", "avanti");
+      changeButtonText("born on the bayou", "avanti");
       break;
     case 4:
       document.querySelector("#modelFamiglia").setAttribute("visible", true);
-      changeButtonText("born on the bayou", "ricomincia!");
+      changeButtonText("hotel california", "ricomincia!");
       break;
   }
 }
