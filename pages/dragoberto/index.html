@@ -9,81 +9,7 @@
     <link rel="stylesheet" href="main.css" />
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/master/dist/aframe-orbit-controls-component.min.js"></script>
-    <script>
-      let index = 0;
-
-      function changeModel() {
-        // Disable all models
-        var cam = document.querySelector("#modelIntro");
-        cam.setAttribute("visible", false);
-        var cam = document.querySelector("#modelMoto");
-        cam.setAttribute("visible", false);
-        var cam = document.querySelector("#modelDragoberto");
-        cam.setAttribute("visible", false);
-        var cam = document.querySelector("#modelFamiglia");
-        cam.setAttribute("visible", false);
-        var cam = document.querySelector("#modelJacopo");
-        cam.setAttribute("visible", false);
-
-        if (++index > 4) index = 0;
-
-        // Enable next model
-        switch (index) {
-          case 0:
-            var cam = document.querySelector("#modelIntro");
-            cam.setAttribute("visible", true);
-            break;
-          case 1:
-            var cam = document.querySelector("#modelMoto");
-            cam.setAttribute("visible", true);
-            break;
-          case 2:
-            var cam = document.querySelector("#modelDragoberto");
-            cam.setAttribute("visible", true);
-            break;
-          case 3:
-            var cam = document.querySelector("#modelFamiglia");
-            cam.setAttribute("visible", true);
-            break;
-          case 4:
-            var cam = document.querySelector("#modelJacopo");
-            cam.setAttribute("visible", true);
-            break;
-        }
-      }
-
-      AFRAME.registerComponent("lambert", {
-        schema: {
-          color: {
-            default: "#fff",
-          },
-        },
-        init: function () {},
-        update: function (oldData) {
-          let mesh = this.el.getObject3D("mesh");
-          if (!mesh) {
-            this.el.addEventListener("model-loaded", (e) => {
-              this.update.call(this, this.data);
-            });
-            return;
-          }
-          this.changeColor(mesh, this.data.color);
-        },
-        changeColor: function (mesh, color) {
-          var material = new THREE.MeshBasicMaterial({
-            color: color,
-          });
-
-          mesh.traverse(function (node) {
-            if (node.type != "Mesh") return;
-            let tmp = node.material;
-            node.material = material;
-            tmp.dispose();
-          });
-        },
-      });
-    </script>
-    <style></style>
+    <script src="js/main.js"></script>
   </head>
 
   <body>
@@ -434,7 +360,13 @@
       </a-scene>
     </div>
     <div id="btn-container">
-      <button id="continue-btn" onclick="changeModel()" ontouchend="this.onclick=stickyBtnFix">AVANTI</button>
+      <button
+        id="continue-btn"
+        onclick="changeModel()"
+        ontouchend="this.onclick=stickyBtnFix"
+      >
+        tanti augusti!
+      </button>
     </div>
 
     <script>
@@ -442,15 +374,8 @@
       audio.loop = true;
       audio.play();
 
-      function stickyBtnFix() {
-        var el = this;
-        var par = el.parentNode;
-        var next = el.nextSibling;
-        par.removeChild(el);
-        setTimeout(function () {
-          par.insertBefore(el, next);
-        }, 0);
-      }
+      // Call delay show button
+      delayshowButton();
     </script>
   </body>
 </html>
