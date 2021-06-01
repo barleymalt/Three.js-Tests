@@ -9,10 +9,9 @@
     <meta name="description" content="360&deg; Image - A-Frame" />
     <link rel="shortcut icon" href="#" />
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <!-- <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script> -->
     <script src="https://unpkg.com/aframe-look-at-component@0.5.1/dist/aframe-look-at-component.min.js"></script>
-    <script src="main.js"></script>
-    <script src="js/components.js"></script>
+    <script src="js/bundle.js"></script>
+    <script src="js/aframe-comps.js"></script>
   </head>
   <body>
     <a-scene vr-mode-ui="enterVRButton: #VRButton;">
@@ -97,9 +96,11 @@
         </a-entity>
       </a-entity>
 
+      <!-- ROOM ONE ENTITIES -->
       <a-entity id="spots" hotspots>
         <a-entity id="group-point1">
           <a-image
+            id="gr1-p1"
             class="link"
             spot="
               linkto: #point2;
@@ -108,9 +109,10 @@
           >
           </a-image>
         </a-entity>
-        <!-- ROOM TWO -->
+        <!-- ROOM TWO ENTITIES -->
         <a-entity id="group-point2" scale="0 0 0">
           <a-image
+            id="gr2-p1"
             class="link"
             spot="
               linkto: #point1;
@@ -118,21 +120,24 @@
             position="0 0 10"
           ></a-image>
           <a-image
+            id="gr2-p2"
             class="link"
             spot="
             linkto: #point3;
             spotgroup: group-point3"
             position="-3 0 -10"
           ></a-image>
+          <a-box></a-box>
         </a-entity>
-        <!-- ROOM THREE -->
+        <!-- ROOM THREE ENTITIES -->
         <a-entity id="group-point3" scale="0 0 0">
           <a-image
+            id="gr3-p1"
             class="link"
             spot="
               linkto: #point2;
               spotgroup: group-point2"
-            position="4 0 10"
+            position="-3 0 -9"
           ></a-image>
         </a-entity>
       </a-entity>
