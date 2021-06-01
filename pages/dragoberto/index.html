@@ -57,6 +57,16 @@
 
         <a-entity id="camera-target" position="0 2.2 0"></a-entity>
 
+        <a-text
+          value="Auguri Umberto!"
+          font="https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json"
+          align="center"
+          shader="msdf"
+          color="#342E37"
+          position="0 180 -200"
+          scale="100 100 0"
+        ></a-text>
+
         <!-- INTRO [SKI] -->
         <a-entity
           id="modelIntro"
@@ -90,6 +100,19 @@
 
           <!-- PRIMO PIANO -->
           <a-entity position="-1.4 3 -.5" rotation="-30 -140 3" scale="2 2 2">
+            <!-- Text Container -->
+            <a-entity position="1.3 1.3 0.1" scale="3 3 3">
+              <a-entity
+                text="
+                    value: ''Hai varcato la linea!''; 
+                    color: #342E37; 
+                    shader: msdf; 
+                    font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
+                    align: center"
+                position="0 0 .51"
+              ></a-entity
+            ></a-entity>
+
             <!-- Image Container -->
             <a-box
               color="#256EFF"
@@ -206,9 +229,8 @@
             <a-entity position="1.2 1.5 0.1" scale="3 3 3">
               <a-entity
                 text="
-                    value: Tonton Dagoberte
-                    Zio Dragoberto
-                    Uncle Dragonbert; 
+                    value: gli anni passano
+                    le compagnie restano; 
                     color: #342E37; 
                     shader: msdf; 
                     font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
@@ -254,7 +276,7 @@
           <!-- JACOPO -->
           <a-entity position="-1.5 1.5 .1" rotation="0 180 0">
             <!-- Text Header -->
-            <a-entity position="1.2 1.5 0.1" scale="3 3 3">
+            <a-entity position="-1.2 1.5 0.1" scale="3 3 3">
               <a-entity
                 text="
                 value: Tonton Dagoberte
@@ -287,12 +309,11 @@
           <!-- RICCARDO -->
           <a-entity position="-.3 3 -.7" rotation="0 0 0">
             <!-- Text Header -->
-            <a-entity position="1.2 1.5 0.1" scale="3 3 3">
+            <a-entity position="-1.8 0.5 0.1" scale="3 3 3">
               <a-entity
                 text="
-               value: Tonton Dagoberte
-               Zio Dragoberto
-               Uncle Dragonbert; 
+               value: tanto simili quanto diversi...
+               ma comunque belli; 
                color: #342E37; 
                shader: msdf; 
                font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
@@ -342,12 +363,10 @@
             scale="1.5 1.5 1.5"
           >
             <!-- Text Header -->
-            <a-entity position="1.2 1.5 0.1" scale="3 3 3">
+            <a-entity position="-1.2 1.5 0.1" scale="3 3 3">
               <a-entity
                 text="
-                    value: Tonton Dagoberte
-                    Zio Dragoberto
-                    Uncle Dragonbert; 
+                    value: ''Stai per entrare in una valle di lacrime...''; 
                     color: #342E37; 
                     shader: msdf; 
                     font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/opensans/OpenSans-Light.json; 
@@ -382,7 +401,7 @@
         changeModel();
         this.onclick=stickyBtnFix;"
       >
-        tanti augusti!
+        Buon Compleanno!
       </button>
     </div>
 

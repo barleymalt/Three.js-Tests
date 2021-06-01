@@ -18,19 +18,19 @@ function changeModel() {
       break;
     case 1:
       document.querySelector("#modelMoto").setAttribute("visible", true);
-      changeButtonText("brum! brum!", "avanti");
+      changeButtonText("down on the corner", "avanti");
       break;
     case 2:
       document.querySelector("#modelDragoberto").setAttribute("visible", true);
-      changeButtonText("gnam!", "avanti");
+      changeButtonText("looking out my back door", "avanti");
       break;
     case 3:
       document.querySelector("#modelJacopo").setAttribute("visible", true);
-      changeButtonText("coi figli", "avanti");
+      changeButtonText("travelin' band", "avanti");
       break;
     case 4:
       document.querySelector("#modelFamiglia").setAttribute("visible", true);
-      changeButtonText("tra coetanei", "ricomincia!");
+      changeButtonText("born on the bayou", "ricomincia!");
       break;
   }
 }
@@ -52,7 +52,7 @@ function delayshowButton() {
 
   lastTimedAction = setTimeout(function () {
     document.getElementById("continue-btn").style.display = "inline-block";
-    changeButtonText("tanti augusti", "avanti");
+    changeButtonText("tanti auguri!", "avanti");
   }, 5000);
 }
 
