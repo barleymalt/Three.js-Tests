@@ -11,13 +11,14 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <!-- <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script> -->
     <script src="https://unpkg.com/aframe-look-at-component@0.5.1/dist/aframe-look-at-component.min.js"></script>
+    <script src="main.js"></script>
     <script src="js/components.js"></script>
   </head>
   <body>
     <a-scene vr-mode-ui="enterVRButton: #VRButton;">
       <a-assets>
         <img id="hotspot" src="img/hotspot-icon.png" />
-        <img id="point1" src="img/photo_studio_01.jpg" />
+        <img id="point1" src="img/photo_studio_01_8k.png" />
         <img id="point2" src="img/puydesancy.jpg" />
         <img id="point3" src="img/comfy_cafe.jpg" />
       </a-assets>
@@ -114,14 +115,14 @@
             spot="
               linkto: #point1;
               spotgroup: group-point1"
-            position="-4 0 -10"
+            position="0 0 10"
           ></a-image>
           <a-image
             class="link"
             spot="
             linkto: #point3;
             spotgroup: group-point3"
-            position="4 0 -10"
+            position="-3 0 -10"
           ></a-image>
         </a-entity>
         <!-- ROOM THREE -->
@@ -131,7 +132,7 @@
             spot="
               linkto: #point2;
               spotgroup: group-point2"
-            position="4 0 -10"
+            position="4 0 10"
           ></a-image>
         </a-entity>
       </a-entity>
