@@ -6,7 +6,22 @@
 
 <meta charset="UTF-8">
 
-<title>ends</title>
+<title>"""
+{clr1}ENDS{clr1}
+{pg}
+You are a {clr2}bold{clr2} and courageous person, afraid of nothing
+High on a hilltop near your home, 
+there stands a dilapidated old mansion.
+Some say the place is haunted,
+
+but you don't believe in such myths.
+One night, a light appears in the topmost window
+in a tower of the old house.
+
+...
+
+You decide to investigate and you never return...
+"""</title>
 
 <script type="text/bitsyGameData" id="exportedGameData">
 """
@@ -26,7 +41,7 @@ in a tower of the old house.
 You decide to investigate and you never return...
 """
 
-# BITSY VERSION 7.2
+# BITSY VERSION 7.7
 
 ! ROOM_FORMAT 1
 
@@ -138,17 +153,6 @@ ITM 1 3,1
 ITM 1 9,1
 ITM 2 10,13
 ITM 2 4,13
-ITM 1 0,3
-ITM 1 0,2
-ITM 1 0,4
-ITM 1 0,5
-ITM 1 0,6
-ITM 1 0,12
-ITM 1 0,11
-ITM 1 0,10
-ITM 1 0,9
-ITM 1 0,8
-ITM 1 0,7
 ITM 0 3,0
 ITM 0 9,0
 ITM 3 6,1
@@ -162,6 +166,17 @@ ITM 4 6,3
 ITM 4 6,2
 ITM 1 0,1
 ITM 0 0,0
+ITM 5 0,12
+ITM 5 0,11
+ITM 5 0,10
+ITM 5 0,9
+ITM 5 0,8
+ITM 5 0,7
+ITM 5 0,6
+ITM 5 0,5
+ITM 5 0,4
+ITM 5 0,3
+ITM 5 0,2
 EXT 15,14 1 15,14 FX fade_b DLG b
 EXT 14,15 1 15,14 FX fade_b DLG b
 EXT 14,0 3 7,7 FX fade_b DLG d
@@ -241,7 +256,7 @@ ROOM 5
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,e,0
 0,0,0,0,0,0,0,0,0,0,0,0,0,k,0,f
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,l,0
-NAME secret_finale
+NAME ending_b
 END i 14,14
 PAL 0
 
@@ -736,7 +751,7 @@ SPR A
 01000000
 01010000
 00010100
-00000100
+01000100
 00010000
 01110000
 01010000
@@ -750,7 +765,8 @@ SPR A
 01110000
 01010000
 01010000
-POS 0 1,14
+POS 0 3,13
+ITM 2 5
 
 SPR a
 00100000
@@ -792,7 +808,7 @@ SPR b
 00011100
 00010100
 00010100
-NAME rodney
+NAME rodney-mirror
 DLG a
 POS 3 8,7
 
@@ -1008,15 +1024,26 @@ DLG 5
 POS 2 13,3
 
 SPR n
-00000000
-00000000
-00000000
-00000000
-00000000
-00000000
-00000000
-00000000
-NAME roboris
+00010000
+10010010
+01001000
+00010011
+00010010
+00011000
+00010000
+00010000
+>
+00010000
+11010000
+01000000
+00011011
+00010010
+00010010
+01010000
+00001000
+NAME roboris-mirror
+DLG j
+POS 5 11,11
 
 ITM 0
 00000000
@@ -1112,6 +1139,26 @@ ITM 4
 00000000
 00000100
 NAME answer_fake
+
+ITM 5
+00000000
+00000100
+00000000
+00000000
+00000000
+00000100
+00000000
+00000100
+>
+00000100
+00000000
+00000000
+00000100
+00000000
+00000000
+00000000
+00000100
+NAME answer_pawn
 
 DLG 0
 """
@@ -1252,33 +1299,30 @@ Shall we enter?
     Ask {clr3}question{clr3} ({clr3}{printItem "0"}{clr3})
     
     Well, I don't know your genre much, but I'm willing to try new stuff... 
-    I mean, it's been a while since I last played in a rehearsal room... just let me know if I need to change something.
+    I mean, it's been a while since the last time I jammed with someone... just let me know if I need to change something.
     Maybe I should play more like long notes and less grooves... or if I should play faster...
     maybe I'm just not cut for this...
     {
       - {item "4"} ?
         Give {clr3}fake answer{clr3} ({clr3}{printItem "1"}{clr3})
         
-        Oh, thank you! Well, I'm glad to know that you liked it
+        Oh, thank you! Well, I'm glad to know that you liked it{item "4" {{item "4"} - 1}}
       - {item "1"} ?
         Give {clr3}answer{clr3} ({clr3}{printItem "1"}{clr3})
         
-        Oh, ok! I understand. Thanks for the honesty
+        Oh, ok! I understand. Thanks for the honesty{item "1" {{item "1"} - 1}}
       - else ?
         ...
         
-        Fine then... sorry if I didn't follow the flow.
-        {item "1" {{item "1"} - 1}}
+        Fine then...  I'll just try to follow the flow.
     }
-    {item "0" {{item "0"} - 1}}
   - else ?
     {
       - {item "1"} ?
         Give {clr3}answer{clr3} ({clr3}{printItem "1"}{clr3})
         
         After you...
-        {pg}
-        {exit "2" 13 1 "fade_w"}
+        {pg}{exit "2" 13 1 "fade_w"}
       - else ?
         ...
     }
@@ -1288,57 +1332,49 @@ NAME roboris_pg_dial
 
 DLG a
 """
-[Play]
-
-[Play]
-
-[Play out of tune]
-
-[Awkward moment]
-
-[Play]
-
-[Too much fuzz]
-
-[Spill beer on instruments]
-
-[Clean]
-{pg}
 {
   - finale == 1 ?
-    [Grame] {clr2}This is a very secret finale. I compliment your explorative attitude and to show my gratitude, here's a special room for you and you only.
-    {clr2}
-    {pg}
-    {exit "5" 7 7 "tunnel"}
+    [Grame] {clr2}Stop making sense!{clr2}{pg}{exit "5" 0 0 "tunnel"}
+  - finale <= -5 ?
+    {end}
   - {item "2"} ?
     ({shk}{clr2}{printItem "2"}{clr2}{shk})
     
-    {item "2" {{item "2"} - 1}}
-    {sequence
+    {item "2" {{item "2"} - 1}}{sequence
       - [Grame] {clr2}What for{clr2}?
         
-        'Catastrophe'
+        'Sissyfuzz...'
       - [Grame] {clr2}What for{clr2}?
         
-        'Destructionism'
+        '...disappeared completely...'
       - [Grame] {clr2}What for{clr2}?
         
-        'Oblivion'
+        '...in candid oblivion...'
       - [Grame] {clr2}What for{clr2}?
         
-        'Black Holes'
+        '...where sex & vegetables...'
       - [Grame] {clr2}What for{clr2}?
         
-        'Disease'
-      - [Grame] {clr2}What for{clr2}?
-        
-        'Bone Chills'
-      - [Grame] {clr2}What for{clr2}?
-        {shk}'Celebration'{shk}
-        {finale = 1}
+        '...would not keep coming.'{finale = 1}
     }
   - else ?
-    That's it... that's all I've got.
+    [Repeat]
+    
+    [Play]
+    
+    [Play]
+    
+    [Play out of tune]
+    
+    [Awkward moment]
+    
+    [Play]
+    
+    [Too much fuzz]
+    
+    [Spill beer on instruments]
+    
+    [Rinse]{finale = finale - 1}
 }
 """
 NAME grame_pg_dial
@@ -1368,7 +1404,6 @@ DLG e
   - Lies the snake
   - {rbw}{printItem "3"}{printItem "3"}{printItem "3"}{printItem "3"}{printItem "3"}{rbw}
 }
-{pg}
 """
 NAME BHS_item_dial
 
@@ -1394,8 +1429,40 @@ DLG h
 NAME grame_item_dial
 
 DLG i
-Victory {wvy}{printSprite "A"}{wvy}
-NAME end
+"""
+{wvy}{printSprite "A"}{wvy}Demon, what is there to explain? What's not understood?
+{wvy}{printSprite "A"}{wvy} You keep giving me orders, judging my actions and errors.
+{wvy}{printSprite "A"}{wvy} Tell me, Demon, is it not enough the damage you've done?
+{wvy}{printSprite "A"}{wvy} How can your appetite be unsated?
+{wvy}{printSprite "A"}{wvy} You know it all, why won't you take control?
+{wvy}{printSprite "A"}{wvy} Can 'you' move this body, open these shy lips?
+{wvy}{printSprite "A"}{wvy} Would you end up loving shadows,
+struggling to become nobody?
+
+{wvy}{printSprite "A"}{wvy} Are you still there, Demon?
+
+{wvy}{printSprite "A"}{wvy} Can you hear me?
+
+
+{wvy}{printSprite "roboris-mirror"}{wvy} ...
+{wvy}{printSprite "roboris-mirror"}{wvy} I know, honesty scares people
+
+{wvy}{printSprite "roboris-mirror"}{wvy} But since you asked kindly
+
+{wvy}{printSprite "roboris-mirror"}{wvy} You were never meant to leave
+
+YOU DIE ABRUPTLY WHILE WORKING OUT IN THE MORINING.
+GAME OVER
+"""
+NAME end_monologue
+
+DLG j
+"""
+What? I'm only here to let you fall.
+You don't believe me?
+Your problem.
+"""
+NAME roboris-mirror_pg_dial
 
 VAR grm_intro
 0
@@ -1410,6 +1477,9 @@ VAR finale
 0
 
 VAR grm_3
+0
+
+VAR rbrs_dia
 0
 
 
@@ -1442,6 +1512,24 @@ body {
 function startExportedGame() {
 	attachCanvas( document.getElementById("game") );
 	load_game( document.getElementById("exportedGameData").text.slice(1) );
+}
+</script>
+
+<script>
+// store if log categories are enabled
+var DebugLogCategory = {
+	bitsy : false,
+	editor : false,
+};
+
+function bitsyLog(message, category) {
+	if (!category) {
+		category = "bitsy";
+	}
+
+	if (DebugLogCategory[category] === true) {
+		console.log(category + "::" + message);
+	}
 }
 </script>
 
@@ -1636,7 +1724,7 @@ var TransitionManager = function() {
 	var prevStep = -1; // used to avoid running post-process effect constantly
 
 	this.BeginTransition = function(startRoom,startX,startY,endRoom,endX,endY,effectName) {
-		// console.log("--- START ROOM TRANSITION ---");
+		// bitsyLog("--- START ROOM TRANSITION ---");
 
 		curEffect = effectName;
 
@@ -1695,7 +1783,7 @@ var TransitionManager = function() {
 		var step = Math.floor(transitionDelta * maxStep);
 
 		if (step != prevStep) {
-			// console.log("step! " + step + " " + transitionDelta);
+			// bitsyLog("step! " + step + " " + transitionDelta);
 			for (var y = 0; y < effectImage.Height; y++) {
 				for (var x = 0; x < effectImage.Width; x++) {
 					var color = transitionEffects[curEffect].pixelEffectFunc(transitionStart,transitionEnd,x,y,(step / maxStep));
@@ -2334,7 +2422,7 @@ var Interpreter = function() {
 
 	// TODO -- maybe this should return a string instead othe actual script??
 	this.Compile = function(scriptName, scriptStr) {
-		// console.log("COMPILE");
+		// bitsyLog("COMPILE");
 		var script = parser.Parse(scriptStr, scriptName);
 		env.SetScript(scriptName, script);
 	}
@@ -2350,7 +2438,7 @@ var Interpreter = function() {
 		script.Eval( localEnv, function(result) { OnScriptReturn(localEnv, exitHandler); } );
 	}
 	this.Interpret = function(scriptStr, exitHandler, objectContext) { // Compiles and runs code immediately
-		// console.log("INTERPRET");
+		// bitsyLog("INTERPRET");
 		var localEnv = new LocalEnvironment(env);
 
 		if (objectContext) {
@@ -2425,7 +2513,7 @@ var Interpreter = function() {
 	function DebugVisualizeScriptTree(scriptTree) {
 		var printVisitor = {
 			Visit : function(node,depth) {
-				console.log("-".repeat(depth) + "- " + node.ToString());
+				bitsyLog("-".repeat(depth) + "- " + node.ToString());
 			},
 		};
 
@@ -2683,7 +2771,7 @@ var Utils = function() {
 
 /* BUILT-IN FUNCTIONS */ // TODO: better way to encapsulate these?
 function deprecatedFunc(environment,parameters,onReturn) {
-	console.log("BITSY SCRIPT WARNING: Tried to use deprecated function");
+	bitsyLog("BITSY SCRIPT WARNING: Tried to use deprecated function");
 	onReturn(null);
 }
 
@@ -2699,7 +2787,7 @@ function printFunc(environment, parameters, onReturn) {
 }
 
 function linebreakFunc(environment, parameters, onReturn) {
-	// console.log("LINEBREAK FUNC");
+	// bitsyLog("LINEBREAK FUNC");
 	environment.GetDialogBuffer().AddLinebreak();
 	environment.GetDialogBuffer().AddScriptReturn(function() { onReturn(null); });
 }
@@ -2824,7 +2912,7 @@ function propertyFunc(environment, parameters, onReturn) {
 		}
 	}
 
-	console.log("PROPERTY! " + propertyName + " " + outValue);
+	bitsyLog("PROPERTY! " + propertyName + " " + outValue);
 
 	onReturn(outValue);
 }
@@ -2878,7 +2966,7 @@ function exitFunc(environment,parameters,onReturn) {
 
 /* BUILT-IN OPERATORS */
 function setExp(environment,left,right,onReturn) {
-	// console.log("SET " + left.name);
+	// bitsyLog("SET " + left.name);
 
 	if(left.type != "variable") {
 		// not a variable! return null and hope for the best D:
@@ -2888,16 +2976,16 @@ function setExp(environment,left,right,onReturn) {
 
 	right.Eval(environment,function(rVal) {
 		environment.SetVariable( left.name, rVal );
-		// console.log("VAL " + environment.GetVariable( left.name ) );
+		// bitsyLog("VAL " + environment.GetVariable( left.name ) );
 		left.Eval(environment,function(lVal) {
 			onReturn( lVal );
 		});
 	});
 }
 function equalExp(environment,left,right,onReturn) {
-	// console.log("EVAL EQUAL");
-	// console.log(left);
-	// console.log(right);
+	// bitsyLog("EVAL EQUAL");
+	// bitsyLog(left);
+	// bitsyLog(right);
 	right.Eval(environment,function(rVal){
 		left.Eval(environment,function(lVal){
 			onReturn( lVal === rVal );
@@ -3001,7 +3089,7 @@ var Environment = function() {
 	this.HasVariable = function(name) { return variableMap.has(name); };
 	this.GetVariable = function(name) { return variableMap.get(name); };
 	this.SetVariable = function(name,value,useHandler) {
-		// console.log("SET VARIABLE " + name + " = " + value);
+		// bitsyLog("SET VARIABLE " + name + " = " + value);
 		if(useHandler === undefined) useHandler = true;
 		variableMap.set(name, value);
 		if(onVariableChangeHandler != null && useHandler){
@@ -3127,7 +3215,7 @@ function leadingWhitespace(depth) {
 	for(var i = 0; i < depth; i++) {
 		str += "  "; // two spaces per indent
 	}
-	// console.log("WHITESPACE " + depth + " ::" + str + "::");
+	// bitsyLog("WHITESPACE " + depth + " ::" + str + "::");
 	return str;
 }
 
@@ -3165,7 +3253,7 @@ var TreeRelationship = function() {
 
 	this.rootId = null; // for debugging
 	this.GetId = function() {
-		// console.log(this);
+		// bitsyLog(this);
 		if (this.rootId != null) {
 			return this.rootId;
 		}
@@ -3187,7 +3275,7 @@ var DialogBlockNode = function(doIndentFirstLine) {
 	this.type = "dialog_block";
 
 	this.Eval = function(environment, onReturn) {
-		// console.log("EVAL BLOCK " + this.children.length);
+		// bitsyLog("EVAL BLOCK " + this.children.length);
 
 		if (isPlayerEmbeddedInEditor && events != undefined && events != null) {
 			events.Raise("script_node_enter", { id: this.GetId() });
@@ -3198,9 +3286,9 @@ var DialogBlockNode = function(doIndentFirstLine) {
 
 		function evalChildren(children, done) {
 			if (i < children.length) {
-				// console.log(">> CHILD " + i);
+				// bitsyLog(">> CHILD " + i);
 				children[i].Eval(environment, function(val) {
-					// console.log("<< CHILD " + i);
+					// bitsyLog("<< CHILD " + i);
 					lastVal = val;
 					i++;
 					evalChildren(children,done);
@@ -3237,29 +3325,14 @@ var DialogBlockNode = function(doIndentFirstLine) {
 
 			var curNode = this.children[i];
 
-			var curNodeIsNonInlineCode = curNode.type === "code_block" && !isInlineCode(curNode);
-			var prevNodeIsNonInlineCode = lastNode && lastNode.type === "code_block" && !isInlineCode(lastNode);
-
 			var shouldIndentFirstLine = (i == 0 && doIndentFirstLine);
 			var shouldIndentAfterLinebreak = (lastNode && lastNode.type === "function" && lastNode.name === "br");
-			var shouldIndentCodeBlock = i > 0 && curNodeIsNonInlineCode;
-			var shouldIndentAfterCodeBlock = prevNodeIsNonInlineCode;
 
-			// need to insert a newline before the first block of non-inline code that isn't 
-			// preceded by a {br}, since those will create their own newline
-			if (i > 0 && curNodeIsNonInlineCode && !prevNodeIsNonInlineCode && !shouldIndentAfterLinebreak) {
-				str += "\n";
-			}
-
-			if (shouldIndentFirstLine || shouldIndentAfterLinebreak || shouldIndentCodeBlock || shouldIndentAfterCodeBlock) {
+			if (shouldIndentFirstLine || shouldIndentAfterLinebreak) {
 				str += leadingWhitespace(depth);
 			}
 
 			str += curNode.Serialize(depth);
-
-			if (i < this.children.length-1 && curNodeIsNonInlineCode) {
-				str += "\n";
-			}
 
 			lastNode = curNode;
 		}
@@ -3277,7 +3350,7 @@ var CodeBlockNode = function() {
 	this.type = "code_block";
 
 	this.Eval = function(environment, onReturn) {
-		// console.log("EVAL BLOCK " + this.children.length);
+		// bitsyLog("EVAL BLOCK " + this.children.length);
 
 		if (isPlayerEmbeddedInEditor && events != undefined && events != null) {
 			events.Raise("script_node_enter", { id: this.GetId() });
@@ -3288,9 +3361,9 @@ var CodeBlockNode = function() {
 
 		function evalChildren(children, done) {
 			if (i < children.length) {
-				// console.log(">> CHILD " + i);
+				// bitsyLog(">> CHILD " + i);
 				children[i].Eval(environment, function(val) {
-					// console.log("<< CHILD " + i);
+					// bitsyLog("<< CHILD " + i);
 					lastVal = val;
 					i++;
 					evalChildren(children,done);
@@ -3316,9 +3389,9 @@ var CodeBlockNode = function() {
 			depth = 0;
 		}
 
-		// console.log("SERIALIZE BLOCK!!!");
-		// console.log(depth);
-		// console.log(doIndentFirstLine);
+		// bitsyLog("SERIALIZE BLOCK!!!");
+		// bitsyLog(depth);
+		// bitsyLog(doIndentFirstLine);
 
 		var str = "{"; // todo: increase scope of Sym?
 
@@ -3517,7 +3590,7 @@ var VarNode = function(name) {
 	this.name = name;
 
 	this.Eval = function(environment,onReturn) {
-		// console.log("EVAL " + this.name + " " + environment.HasVariable(this.name) + " " + environment.GetVariable(this.name));
+		// bitsyLog("EVAL " + this.name + " " + environment.HasVariable(this.name) + " " + environment.GetVariable(this.name));
 		if( environment.HasVariable(this.name) )
 			onReturn( environment.GetVariable( this.name ) );
 		else
@@ -3542,11 +3615,11 @@ var ExpNode = function(operator, left, right) {
 	this.right = right;
 
 	this.Eval = function(environment,onReturn) {
-		// console.log("EVAL " + this.operator);
+		// bitsyLog("EVAL " + this.operator);
 		var self = this; // hack to deal with scope
 		environment.EvalOperator( this.operator, this.left, this.right, 
 			function(val){
-				// console.log("EVAL EXP " + self.operator + " " + val);
+				// bitsyLog("EVAL EXP " + self.operator + " " + val);
 				onReturn(val);
 			} );
 		// NOTE : sadly this pushes a lot of complexity down onto the actual operator methods
@@ -3629,7 +3702,7 @@ var SequenceNode = function(options) {
 
 	var index = 0;
 	this.Eval = function(environment, onReturn) {
-		// console.log("SEQUENCE " + index);
+		// bitsyLog("SEQUENCE " + index);
 		this.children[index].Eval(environment, onReturn);
 
 		var next = index + 1;
@@ -3647,7 +3720,7 @@ var CycleNode = function(options) {
 
 	var index = 0;
 	this.Eval = function(environment, onReturn) {
-		// console.log("CYCLE " + index);
+		// bitsyLog("CYCLE " + index);
 		this.children[index].Eval(environment, onReturn);
 
 		var next = index + 1;
@@ -3700,7 +3773,7 @@ var IfNode = function(conditions, results, isSingleLine) {
 
 	var self = this;
 	this.Eval = function(environment, onReturn) {
-		// console.log("EVAL IF");
+		// bitsyLog("EVAL IF");
 		var i = 0;
 		function TestCondition() {
 			self.children[i].Eval(environment, function(result) {
@@ -3852,8 +3925,8 @@ var Parser = function(env) {
 		rootNode.rootId = rootId;
 		var state = new ParserState(rootNode, scriptStr);
 
-		console.log(scriptStr);
-		console.log(state.Source());
+		bitsyLog(scriptStr);
+		bitsyLog(state.Source());
 
 		if (state.MatchAhead(Sym.DialogOpen)) {
 			// multi-line dialog block
@@ -3883,10 +3956,10 @@ var Parser = function(env) {
 		this.Char = function() { return sourceStr[i]; };
 		this.Step = function(n) { if(n===undefined) n=1; i += n; };
 		this.MatchAhead = function(str) {
-			// console.log(str);
+			// bitsyLog(str);
 			str = "" + str; // hack to turn single chars into strings
-			// console.log(str);
-			// console.log(str.length);
+			// bitsyLog(str);
+			// bitsyLog(str.length);
 			for (var j = 0; j < str.length; j++) {
 				if (i + j >= sourceStr.length) {
 					return false;
@@ -3900,12 +3973,12 @@ var Parser = function(env) {
 		this.Peak = function(end) {
 			var str = "";
 			var j = i;
-			// console.log(j);
+			// bitsyLog(j);
 			while (j < sourceStr.length && end.indexOf(sourceStr[j]) == -1) {
 				str += sourceStr[j];
 				j++;
 			}
-			// console.log("PEAK ::" + str + "::");
+			// bitsyLog("PEAK ::" + str + "::");
 			return str;
 		}
 		this.ConsumeBlock = function(open, close, includeSymbols) {
@@ -3943,7 +4016,7 @@ var Parser = function(env) {
 			}
 		}
 
-		this.Print = function() { console.log(sourceStr); };
+		this.Print = function() { bitsyLog(sourceStr); };
 		this.Source = function() { return sourceStr; };
 	};
 
@@ -4200,7 +4273,7 @@ var Parser = function(env) {
 	}
 
 	function IsSequence(str) {
-		// console.log("IsSequence? " + str);
+		// bitsyLog("IsSequence? " + str);
 		return str === "sequence" || str === "cycle" || str === "shuffle";
 	}
 
@@ -4324,16 +4397,16 @@ var Parser = function(env) {
 	}
 
 	function ParseFunction(state, funcName) {
-		console.log("~~~ PARSE FUNCTION " + funcName);
+		bitsyLog("~~~ PARSE FUNCTION " + funcName);
 
 		var args = [];
 
 		var curSymbol = "";
 		function OnSymbolEnd() {
 			curSymbol = curSymbol.trim();
-			// console.log("PARAMTER " + curSymbol);
+			// bitsyLog("PARAMTER " + curSymbol);
 			args.push( StringToValue(curSymbol) );
-			// console.log(args);
+			// bitsyLog(args);
 			curSymbol = "";
 		}
 
@@ -4348,7 +4421,7 @@ var Parser = function(env) {
 			else if( state.MatchAhead(Sym.String) ) {
 				/* STRING LITERAL */
 				var str = state.ConsumeBlock(Sym.String, Sym.String);
-				// console.log("STRING " + str);
+				// bitsyLog("STRING " + str);
 				args.push( new LiteralNode(str) );
 				curSymbol = "";
 			}
@@ -4373,7 +4446,7 @@ var Parser = function(env) {
 	function IsValidVariableName(str) {
 		var reg = /^[a-zA-Z_$][a-zA-Z_$0-9]*$/;
 		var isValid = reg.test(str);
-		// console.log("VALID variable??? " + isValid);
+		// bitsyLog("VALID variable??? " + isValid);
 		return isValid;
 	}
 
@@ -4387,14 +4460,14 @@ var Parser = function(env) {
 		}
 		else if(valStr[0] === Sym.String) {
 			// STRING!!
-			// console.log("STRING");
+			// bitsyLog("STRING");
 			var str = "";
 			var i = 1;
 			while (i < valStr.length && valStr[i] != Sym.String) {
 				str += valStr[i];
 				i++;
 			}
-			// console.log(str);
+			// bitsyLog(str);
 			return new LiteralNode( str );
 		}
 		else if(valStr === "true") {
@@ -4407,12 +4480,12 @@ var Parser = function(env) {
 		}
 		else if( !isNaN(parseFloat(valStr)) ) {
 			// NUMBER!!
-			// console.log("NUMBER!!! " + valStr);
+			// bitsyLog("NUMBER!!! " + valStr);
 			return new LiteralNode( parseFloat(valStr) );
 		}
 		else if(IsValidVariableName(valStr)) {
 			// VARIABLE!!
-			// console.log("VARIABLE");
+			// bitsyLog("VARIABLE");
 			return new VarNode(valStr); // TODO : check for valid potential variables
 		}
 		else {
@@ -4553,9 +4626,9 @@ var Parser = function(env) {
 
 	function ParseExpression(state) {
 		var line = state.Source(); // state.Peak( [Sym.Linebreak] ); // TODO : remove the linebreak thing
-		// console.log("EXPRESSION " + line);
+		// bitsyLog("EXPRESSION " + line);
 		var exp = CreateExpression(line);
-		// console.log(exp);
+		// bitsyLog(exp);
 		state.curNode.AddChild(exp);
 		state.Step(line.length);
 		return state;
@@ -4720,7 +4793,7 @@ var DialogRenderer = function() {
 		0,0,1,0,0
 	];
 	this.DrawNextArrow = function() {
-		// console.log("draw arrow!");
+		// bitsyLog("draw arrow!");
 		var top = (textboxInfo.height-5) * scale;
 		var left = (textboxInfo.width-(5+4)) * scale;
 		if (textDirection === TextDirection.RightToLeft) { // RTL hack
@@ -4867,7 +4940,7 @@ var DialogBuffer = function() {
 		for (var i = 0; i < rowCount; i++) {
 			var row = this.CurPage()[i];
 			var charCount = (i == rowIndex) ? charIndex+1 : row.length;
-			// console.log(charCount);
+			// bitsyLog(charCount);
 
 			var leftPos = 0;
 			if (textDirection === TextDirection.RightToLeft) {
@@ -4880,7 +4953,7 @@ var DialogBuffer = function() {
 					if (textDirection === TextDirection.RightToLeft) {
 						leftPos -= char.spacing;
 					}
-					// console.log(j + " " + leftPos);
+					// bitsyLog(j + " " + leftPos);
 
 					// handler( char, i /*rowIndex*/, j /*colIndex*/ );
 					handler(char, i /*rowIndex*/, j /*colIndex*/, leftPos)
@@ -4955,7 +5028,7 @@ var DialogBuffer = function() {
 	};
 
 	this.Skip = function() {
-		console.log("SKIPPP");
+		bitsyLog("SKIPPP");
 		didPageFinishThisFrame = false;
 		didFlipPageThisFrame = false;
 		// add new characters until you get to the end of the current line of dialog
@@ -4991,7 +5064,7 @@ var DialogBuffer = function() {
 	var afterManualPagebreak = false; // is it bad to track this state like this?
 
 	this.Continue = function() {
-		console.log("CONTINUE");
+		bitsyLog("CONTINUE");
 
 		// if we used a page break character to continue we need
 		// to run whatever is in the script afterwards! // TODO : make this comment better
@@ -5004,13 +5077,13 @@ var DialogBuffer = function() {
 			return false;
 		}
 		if (pageIndex + 1 < this.CurPageCount()) {
-			console.log("FLIP PAGE!");
+			bitsyLog("FLIP PAGE!");
 			//start next page
 			this.FlipPage();
 			return true; /* hasMoreDialog */
 		}
 		else {
-			console.log("END DIALOG!");
+			bitsyLog("END DIALOG!");
 			//end dialog mode
 			this.EndDialog();
 			return false; /* hasMoreDialog */
@@ -5041,17 +5114,17 @@ var DialogBuffer = function() {
 		this.row = 0;
 
 		this.SetPosition = function(row,col) {
-			// console.log("SET POS");
-			// console.log(this);
+			// bitsyLog("SET POS");
+			// bitsyLog(this);
 			this.row = row;
 			this.col = col;
 		}
 
 		this.ApplyEffects = function(time) {
-			// console.log("APPLY EFFECTS! " + time);
+			// bitsyLog("APPLY EFFECTS! " + time);
 			for(var i = 0; i < this.effectList.length; i++) {
 				var effectName = this.effectList[i];
-				// console.log("FX " + effectName);
+				// bitsyLog("FX " + effectName);
 				TextEffects[ effectName ].DoEffect( this, time );
 			}
 		}
@@ -5062,7 +5135,7 @@ var DialogBuffer = function() {
 		}
 		this.OnPrint = function() {
 			if (printHandler != null) {
-				// console.log("PRINT HANDLER ---- DIALOG BUFFER");
+				// bitsyLog("PRINT HANDLER ---- DIALOG BUFFER");
 				printHandler();
 				printHandler = null; // only call handler once (hacky)
 			}
@@ -5096,7 +5169,7 @@ var DialogBuffer = function() {
 		var imageData = renderer.GetImageSource(drawingId)[0];
 		var imageDataFlat = [];
 		for (var i = 0; i < imageData.length; i++) {
-			// console.log(imageData[i]);
+			// bitsyLog(imageData[i]);
 			imageDataFlat = imageDataFlat.concat(imageData[i]);
 		}
 
@@ -5177,7 +5250,7 @@ var DialogBuffer = function() {
 	}
 
 	this.AddDrawing = function(drawingId) {
-		// console.log("DRAWING ID " + drawingId);
+		// bitsyLog("DRAWING ID " + drawingId);
 
 		var curPageIndex = buffer.length - 1;
 		var curRowIndex = buffer[curPageIndex].length - 1;
@@ -5229,7 +5302,7 @@ var DialogBuffer = function() {
 
 	// TODO : convert this into something that takes DialogChar arrays
 	this.AddText = function(textStr) {
-		console.log("ADD TEXT " + textStr);
+		bitsyLog("ADD TEXT " + textStr);
 
 		//process dialog so it's easier to display
 		var words = textStr.split(" ");
@@ -5308,7 +5381,7 @@ var DialogBuffer = function() {
 			var lastChar = lastRow[lastRow.length-1];
 		}
 
-		// console.log(buffer);
+		// bitsyLog(buffer);
 
 		isActive = true;
 	};
@@ -5316,7 +5389,7 @@ var DialogBuffer = function() {
 	this.AddLinebreak = function() {
 		var lastPage = buffer[buffer.length-1];
 		if (lastPage.length <= 1) {
-			// console.log("LINEBREAK - NEW ROW ");
+			// bitsyLog("LINEBREAK - NEW ROW ");
 			// add new row
 			lastPage.push([]);
 		}
@@ -5324,7 +5397,7 @@ var DialogBuffer = function() {
 			// add new page
 			buffer.push([[]]);
 		}
-		// console.log(buffer);
+		// bitsyLog(buffer);
 
 		isActive = true;
 	}
@@ -5536,10 +5609,10 @@ var TextEffects = new Map();
 
 var RainbowEffect = function() { // TODO - should it be an object or just a method?
 	this.DoEffect = function(char,time) {
-		// console.log("RAINBOW!!!");
-		// console.log(char);
-		// console.log(char.color);
-		// console.log(char.col);
+		// bitsyLog("RAINBOW!!!");
+		// bitsyLog(char);
+		// bitsyLog(char.color);
+		// bitsyLog(char.col);
 
 		var h = Math.abs( Math.sin( (time / 600) - (char.col / 8) ) );
 		var rgb = hslToRgb( h, 1, 0.5 );
@@ -5555,7 +5628,7 @@ var ColorEffect = function(index) {
 	this.DoEffect = function(char) {
 		var pal = getPal( curPal() );
 		var color = pal[ parseInt( index ) ];
-		// console.log(color);
+		// bitsyLog(color);
 		char.color.r = color[0];
 		char.color.g = color[1];
 		char.color.b = color[2];
@@ -5618,7 +5691,7 @@ TODO
 
 function Renderer(tilesize, scale) {
 
-console.log("!!!!! NEW RENDERER");
+bitsyLog("!!!!! NEW RENDERER");
 
 var imageStore = { // TODO : rename to imageCache
 	source: {},
@@ -5660,7 +5733,7 @@ var debugRenderCount = 0;
 // TODO : change image store path from (pal > col > draw) to (draw > pal > col)
 function renderImage(drawing, paletteId) {
 	// debugRenderCount++;
-	// console.log("RENDER COUNT " + debugRenderCount);
+	// bitsyLog("RENDER COUNT " + debugRenderCount);
 
 	var col = drawing.col;
 	var colStr = "" + col;
@@ -5688,7 +5761,7 @@ function renderImage(drawing, paletteId) {
 }
 
 function imageDataFromImageSource(imageSource, pal, col) {
-	//console.log(imageSource);
+	//bitsyLog(imageSource);
 
 	var img = context.createImageData(tilesize*scale,tilesize*scale);
 
@@ -5797,6 +5870,10 @@ this.AttachContext = function(ctx) {
 	context = ctx;
 }
 
+this.ClearCache = function() {
+	imageStore.render = {};
+}
+
 } // Renderer()
 </script>
 
@@ -5867,7 +5944,7 @@ var spriteStartLocations = {};
 /* VERSION */
 var version = {
 	major: 7, // major changes
-	minor: 2, // smaller changes
+	minor: 7, // smaller changes
 	devBuildPhase: "RELEASE",
 };
 function getEngineVersion() {
@@ -5960,7 +6037,7 @@ var renderer = new Renderer(tilesize, scale);
 
 function getGameNameFromURL() {
 	var game = window.location.hash.substring(1);
-	// console.log("game name --- " + game);
+	// bitsyLog("game name --- " + game);
 	return game;
 }
 
@@ -6091,7 +6168,7 @@ function getOffset(evt) {
 }
 
 function stopGame() {
-	console.log("stop GAME!");
+	bitsyLog("stop GAME!");
 
 	document.removeEventListener('keydown', input.onkeydown);
 	document.removeEventListener('keyup', input.onkeyup);
@@ -6452,13 +6529,13 @@ var InputManager = function() {
 		for (var key in pressed) {
 			if (pressed[key]) { // only ignore keys that are actually held
 				ignored[key] = true;
-				// console.log("IGNORE -- " + key);
+				// bitsyLog("IGNORE -- " + key);
 			}
 		}
 	}
 
 	this.onkeydown = function(event) {
-		// console.log("KEYDOWN -- " + event.keyCode);
+		// bitsyLog("KEYDOWN -- " + event.keyCode);
 
 		stopWindowScrolling(event);
 
@@ -6489,7 +6566,7 @@ var InputManager = function() {
 	}
 
 	this.onkeyup = function(event) {
-		// console.log("KEYUP -- " + event.keyCode);
+		// bitsyLog("KEYUP -- " + event.keyCode);
 		pressed[event.keyCode] = false;
 		ignored[event.keyCode] = false;
 	}
@@ -6587,7 +6664,7 @@ var InputManager = function() {
 	}
 
 	this.onblur = function() {
-		// console.log("~~~ BLUR ~~");
+		// bitsyLog("~~~ BLUR ~~");
 		resetAll();
 	}
 }
@@ -6792,7 +6869,7 @@ function getEnding(roomId,x,y) {
 }
 
 function getTile(x,y) {
-	// console.log(x + " " + y);
+	// bitsyLog(x + " " + y);
 	var t = getRoom().tilemap[y][x];
 	return t;
 }
@@ -6838,7 +6915,7 @@ function parseWorld(file) {
 	while (i < lines.length) {
 		var curLine = lines[i];
 
-		// console.log(lines[i]);
+		// bitsyLog(lines[i]);
 
 		if (i == 0) {
 			i = parseTitle(lines, i);
@@ -6935,7 +7012,7 @@ function parseWorld(file) {
 
 function scriptCompatibility(compatibilityFlags) {
 	if (compatibilityFlags.convertSayToPrint) {
-		console.log("CONVERT SAY TO PRINT!");
+		bitsyLog("CONVERT SAY TO PRINT!");
 
 		var PrintFunctionVisitor = function() {
 			var didChange = false;
@@ -7201,13 +7278,13 @@ function isExitValid(e) {
 
 function placeSprites() {
 	for (id in spriteStartLocations) {
-		//console.log(id);
-		//console.log( spriteStartLocations[id] );
-		//console.log(sprite[id]);
+		//bitsyLog(id);
+		//bitsyLog( spriteStartLocations[id] );
+		//bitsyLog(sprite[id]);
 		sprite[id].room = spriteStartLocations[id].room;
 		sprite[id].x = spriteStartLocations[id].x;
 		sprite[id].y = spriteStartLocations[id].y;
-		//console.log(sprite[id]);
+		//bitsyLog(sprite[id]);
 	}
 }
 
@@ -7280,7 +7357,7 @@ function parseRoom(lines, i, compatibilityFlags) {
 	}
 
 	while (i < lines.length && lines[i].length > 0) { //look for empty line
-		// console.log(getType(lines[i]));
+		// bitsyLog(getType(lines[i]));
 		if (getType(lines[i]) === "SPR") {
 			/* NOTE SPRITE START LOCATIONS */
 			var sprId = getId(lines[i]);
@@ -7427,87 +7504,67 @@ function parsePalette(lines,i) { //todo this has to go first right now :(
 
 function parseTile(lines, i) {
 	var id = getId(lines[i]);
-	var drwId = null;
-	var name = null;
+	var tileData = createDrawingData("TIL", id);
 
 	i++;
 
-	if (getType(lines[i]) === "DRW") { //load existing drawing
-		drwId = getId(lines[i]);
-		i++;
-	}
-	else {
-		// store tile source
-		drwId = "TIL_" + id;
-		i = parseDrawingCore( lines, i, drwId );
-	}
+	// read & store tile image source
+	i = parseDrawingCore(lines, i, tileData.drw);
 
-	//other properties
-	var colorIndex = 1; // default palette color index is 1
-	var isWall = null; // null indicates it can vary from room to room (original version)
-	while (i < lines.length && lines[i].length > 0) { //look for empty line
+	// update animation info
+	tileData.animation.frameCount = renderer.GetFrameCount(tileData.drw);
+	tileData.animation.isAnimated = tileData.animation.frameCount > 1;
+
+	// read other properties
+	while (i < lines.length && lines[i].length > 0) { // look for empty line
 		if (getType(lines[i]) === "COL") {
-			colorIndex = parseInt( getId(lines[i]) );
+			tileData.col = parseInt(getId(lines[i]));
 		}
 		else if (getType(lines[i]) === "NAME") {
 			/* NAME */
-			name = lines[i].split(/\s(.+)/)[1];
-			names.tile.set( name, id );
+			tileData.name = lines[i].split(/\s(.+)/)[1];
+			names.tile.set(tileData.name, id);
 		}
 		else if (getType(lines[i]) === "WAL") {
-			var wallArg = getArg( lines[i], 1 );
-			if( wallArg === "true" ) {
-				isWall = true;
+			var wallArg = getArg(lines[i], 1);
+			if (wallArg === "true") {
+				tileData.isWall = true;
 			}
-			else if( wallArg === "false" ) {
-				isWall = false;
+			else if (wallArg === "false") {
+				tileData.isWall = false;
 			}
 		}
+
 		i++;
 	}
 
-	//tile data
-	tile[id] = {
-		id : id,
-		drw : drwId, //drawing id
-		col : colorIndex,
-		animation : {
-			isAnimated : (renderer.GetFrameCount(drwId) > 1),
-			frameIndex : 0,
-			frameCount : renderer.GetFrameCount(drwId)
-		},
-		name : name,
-		isWall : isWall
-	};
+	// store tile data
+	tile[id] = tileData;
 
 	return i;
 }
 
 function parseSprite(lines, i) {
 	var id = getId(lines[i]);
-	var drwId = null;
-	var name = null;
+	var type = (id === "A") ? "AVA" : "SPR";
+	var spriteData = createDrawingData(type, id);
+
+	bitsyLog(spriteData);
 
 	i++;
 
-	if (getType(lines[i]) === "DRW") { //load existing drawing
-		drwId = getId(lines[i]);
-		i++;
-	}
-	else {
-		// store sprite source
-		drwId = "SPR_" + id;
-		i = parseDrawingCore( lines, i, drwId );
-	}
+	// read & store sprite image source
+	i = parseDrawingCore(lines, i, spriteData.drw);
 
-	//other properties
-	var colorIndex = 2; //default palette color index is 2
-	var dialogId = null;
-	var startingInventory = {};
-	while (i < lines.length && lines[i].length > 0) { //look for empty line
+	// update animation info
+	spriteData.animation.frameCount = renderer.GetFrameCount(spriteData.drw);
+	spriteData.animation.isAnimated = spriteData.animation.frameCount > 1;
+
+	// read other properties
+	while (i < lines.length && lines[i].length > 0) { // look for empty line
 		if (getType(lines[i]) === "COL") {
 			/* COLOR OFFSET INDEX */
-			colorIndex = parseInt( getId(lines[i]) );
+			spriteData.col = parseInt(getId(lines[i]));
 		}
 		else if (getType(lines[i]) === "POS") {
 			/* STARTING POSITION */
@@ -7521,108 +7578,62 @@ function parseSprite(lines, i) {
 			};
 		}
 		else if(getType(lines[i]) === "DLG") {
-			dialogId = getId(lines[i]);
+			spriteData.dlg = getId(lines[i]);
 		}
 		else if (getType(lines[i]) === "NAME") {
 			/* NAME */
-			name = lines[i].split(/\s(.+)/)[1];
-			names.sprite.set( name, id );
+			spriteData.name = lines[i].split(/\s(.+)/)[1];
+			names.sprite.set(spriteData.name, id);
 		}
 		else if (getType(lines[i]) === "ITM") {
 			/* ITEM STARTING INVENTORY */
 			var itemId = getId(lines[i]);
-			var itemCount = parseFloat( getArg(lines[i], 2) );
-			startingInventory[itemId] = itemCount;
+			var itemCount = parseFloat(getArg(lines[i], 2));
+			spriteData.inventory[itemId] = itemCount;
 		}
+
 		i++;
 	}
 
-	//sprite data
-	sprite[id] = {
-		id : id,
-		drw : drwId, //drawing id
-		col : colorIndex,
-		dlg : dialogId,
-		room : null, //default location is "offstage"
-		x : -1,
-		y : -1,
-		animation : {
-			isAnimated : (renderer.GetFrameCount(drwId) > 1),
-			frameIndex : 0,
-			frameCount : renderer.GetFrameCount(drwId)
-		},
-		inventory : startingInventory,
-		name : name
-	};
+	// store sprite data
+	sprite[id] = spriteData;
+
 	return i;
 }
 
 function parseItem(lines, i) {
 	var id = getId(lines[i]);
-	var drwId = null;
-	var name = null;
+	var itemData = createDrawingData("ITM", id);
 
 	i++;
 
-	if (getType(lines[i]) === "DRW") { //load existing drawing
-		drwId = getId(lines[i]);
-		i++;
-	}
-	else {
-		// store item source
-		drwId = "ITM_" + id; // these prefixes are maybe a terrible way to differentiate drawing tyepes :/
-		i = parseDrawingCore( lines, i, drwId );
-	}
+	// read & store item image source
+	i = parseDrawingCore(lines, i, itemData.drw);
 
-	//other properties
-	var colorIndex = 2; //default palette color index is 2
-	var dialogId = null;
-	while (i < lines.length && lines[i].length > 0) { //look for empty line
+	// update animation info
+	itemData.animation.frameCount = renderer.GetFrameCount(itemData.drw);
+	itemData.animation.isAnimated = itemData.animation.frameCount > 1;
+
+	// read other properties
+	while (i < lines.length && lines[i].length > 0) { // look for empty line
 		if (getType(lines[i]) === "COL") {
 			/* COLOR OFFSET INDEX */
-			colorIndex = parseInt( getArg( lines[i], 1 ) );
+			itemData.col = parseInt(getArg(lines[i], 1));
 		}
-		// else if (getType(lines[i]) === "POS") {
-		// 	/* STARTING POSITION */
-		// 	var posArgs = lines[i].split(" ");
-		// 	var roomId = posArgs[1];
-		// 	var coordArgs = posArgs[2].split(",");
-		// 	spriteStartLocations[id] = {
-		// 		room : roomId,
-		// 		x : parseInt(coordArgs[0]),
-		// 		y : parseInt(coordArgs[1])
-		// 	};
-		// }
-		else if(getType(lines[i]) === "DLG") {
-			dialogId = getId(lines[i]);
+		else if (getType(lines[i]) === "DLG") {
+			itemData.dlg = getId(lines[i]);
 		}
 		else if (getType(lines[i]) === "NAME") {
 			/* NAME */
-			name = lines[i].split(/\s(.+)/)[1];
-			names.item.set( name, id );
+			itemData.name = lines[i].split(/\s(.+)/)[1];
+			names.item.set(itemData.name, id);
 		}
+
 		i++;
 	}
 
-	//item data
-	item[id] = {
-		id : id,
-		drw : drwId, //drawing id
-		col : colorIndex,
-		dlg : dialogId,
-		// room : null, //default location is "offstage"
-		// x : -1,
-		// y : -1,
-		animation : {
-			isAnimated : (renderer.GetFrameCount(drwId) > 1),
-			frameIndex : 0,
-			frameCount : renderer.GetFrameCount(drwId)
-		},
-		name : name
-	};
-
-	// console.log("ITM " + id);
-	// console.log(item[id]);
+	// store item data
+	item[id] = itemData;
 
 	return i;
 }
@@ -7665,6 +7676,45 @@ function parseDrawingCore(lines, i, drwId) {
 	return i;
 }
 
+// creates a drawing data structure with default property values for the type
+function createDrawingData(type, id) {
+	// the avatar's drawing id still uses the sprite prefix (for back compat)
+	var drwId = (type === "AVA" ? "SPR" : type) + "_" + id;
+
+	var drawingData = {
+		type : type,
+		id : id,
+		name : null,
+		drw : drwId,
+		col : (type === "TIL") ? 1 : 2,
+		animation : {
+			isAnimated : false,
+			frameIndex : 0,
+			frameCount : 1,
+		},
+	};
+
+	// add type specific properties
+	if (type === "TIL") {
+		// default null value indicates it can vary from room to room (original version)
+		drawingData.isWall = null;
+	}
+
+	if (type === "AVA" || type === "SPR") {
+		// default sprite location is "offstage"
+		drawingData.room = null;
+		drawingData.x = -1;
+		drawingData.y = -1;
+		drawingData.inventory = {};
+	}
+
+	if (type === "AVA" || type === "SPR" || type === "ITM") {
+		drawingData.dlg = null;
+	}
+
+	return drawingData;
+}
+
 function parseScript(lines, i, backCompatPrefix, compatibilityFlags) {
 	var id = getId(lines[i]);
 	id = backCompatPrefix + id;
@@ -7672,7 +7722,7 @@ function parseScript(lines, i, backCompatPrefix, compatibilityFlags) {
 
 	var results = scriptUtils.ReadDialogScript(lines,i);
 
-	dialog[id] = { src:results.script, name:null };
+	dialog[id] = { src: results.script, name: null, id: id, };
 
 	if (compatibilityFlags.convertImplicitSpriteDialogIds) {
 		// explicitly hook up dialog that used to be implicitly
@@ -7783,7 +7833,7 @@ function drawRoom(room,context,frameIndex) { // context & frameIndex are optiona
 
 	// if (room.id != debugLastRoomDrawn) {
 	// 	debugLastRoomDrawn = room.id;
-	// 	console.log("DRAW ROOM " + debugLastRoomDrawn);
+	// 	bitsyLog("DRAW ROOM " + debugLastRoomDrawn);
 	// }
 
 	var paletteId = "default";
@@ -7807,13 +7857,13 @@ function drawRoom(room,context,frameIndex) { // context & frameIndex are optiona
 		for (j in room.tilemap[i]) {
 			var id = room.tilemap[i][j];
 			if (id != "0") {
-				//console.log(id);
+				//bitsyLog(id);
 				if (tile[id] == null) { // hack-around to avoid corrupting files (not a solution though!)
 					id = "0";
 					room.tilemap[i][j] = id;
 				}
 				else {
-					// console.log(id);
+					// bitsyLog(id);
 					drawTile( getTileImage(tile[id],paletteId,frameIndex), j, i, context );
 				}
 			}
@@ -7885,7 +7935,7 @@ var fontManager = new FontManager();
 
 // TODO : is this scriptResult thing being used anywhere???
 function onExitDialog(scriptResult, dialogCallback) {
-	console.log("EXIT DIALOG!");
+	bitsyLog("EXIT DIALOG!");
 
 	isDialogMode = false;
 
@@ -7914,7 +7964,7 @@ TODO
 - what about a special script block separate from DLG?
 */
 function startNarrating(dialogStr,end) {
-	console.log("NARRATE " + dialogStr);
+	bitsyLog("NARRATE " + dialogStr);
 
 	if(end === undefined) {
 		end = false;
@@ -7944,7 +7994,7 @@ function startEndingDialog(ending) {
 
 function startItemDialog(itemId, dialogCallback) {
 	var dialogId = item[itemId].dlg;
-	// console.log("START ITEM DIALOG " + dialogId);
+	// bitsyLog("START ITEM DIALOG " + dialogId);
 	if (dialog[dialogId]) {
 		var dialogStr = dialog[dialogId].src;
 		startDialog(dialogStr, dialogId, dialogCallback);
@@ -7957,7 +8007,7 @@ function startItemDialog(itemId, dialogCallback) {
 function startSpriteDialog(spriteId) {
 	var spr = sprite[spriteId];
 	var dialogId = spr.dlg;
-	// console.log("START SPRITE DIALOG " + dialogId);
+	// bitsyLog("START SPRITE DIALOG " + dialogId);
 	if (dialog[dialogId]){
 		var dialogStr = dialog[dialogId].src;
 		startDialog(dialogStr,dialogId);
@@ -7965,9 +8015,9 @@ function startSpriteDialog(spriteId) {
 }
 
 function startDialog(dialogStr, scriptId, dialogCallback, objectContext) {
-	// console.log("START DIALOG ");
+	// bitsyLog("START DIALOG ");
 	if (dialogStr.length <= 0) {
-		// console.log("ON EXIT DIALOG -- startDialog 1");
+		// bitsyLog("ON EXIT DIALOG -- startDialog 1");
 		onExitDialog(null, dialogCallback);
 		return;
 	}
@@ -10339,6 +10389,7 @@ CHAR 255
 010010
 000000
 000000
+</script>
 </script>
 </script>
 </script>
