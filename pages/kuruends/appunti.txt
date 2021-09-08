@@ -5,20 +5,33 @@ Avvicinandosi all'oggetto partono delle linee di dialogo che sembrano essere sco
 
 Finale Anonimo/Solipsistico
 
-Rodney incontra Roboris Mirror e gli parla nel proprio mondo, anziché attraverso il [telefono/interfono/aleph].
-Potrebbe recitare una poesia e finire il gioco. Un monologo in cui odia il demone. Lo disprezza e ne elenca i difetti. 
+Un finale cui si accede non seguendo la strada più ovvia. Il giocatore incontra il personaggio mirror dell'altra finestra. Inizia un monologo.
+
+KURU (Roboris)
+Riversare il proprio dolore nell'atto di creazione, a prescindere che significhi qualche cosa, a prescindere dal trovare soluzioni, accettando la morte, accettando la solitudine, la mancanza di risposte, l'ingiustizia atomica dell'esistere. L'incomunicabilità, il privilegio, la cecità, la sordità, l'inverno, l'inferno, il laissez-faire, la bellezza costruita sulla violenza e la millenaria balla che ciò che è bello in fondo nasca dal bene e che il male non esiste.
+Le illusioni, il cielo senza le stelle. I parchi troppo illuminati, privi di romanticismo. Il romanticismo, origine di evitabili delusioni.
+I sentimenti mal risposti. Le domande mal poste. Gli elenchi troppo lunghi, le troppe parole.
+
+ENDS (Rodney):
+Demòne, che cosa mi vuoi spiegare? Cosa vuoi farmi capire? Non fai che darmi ordini e giudicare le mie azioni, i miei errori. Dimmi Demòne non sei soddisfatto già di tutto il danno che hai fatto? Tu che sai tutto, perché non provi a muovere questo corpo? Sapresti fare di meglio? Sapresti tu non amare le ombre ed accettare di essere Nessuno?
+Sapresti smettere di ascoltare le sirene? Impareresti a mangiare le verdure? Saresti più bravo di me a trombare? Scriveresti meglio di me? Suoneresti meglio? Vivresti meglio se avessi il controllo del mio corpo? Demòne? Perché non rispondi più? Puoi sentirmi? Can you hear me?
+
+Il demone viene a reclamare, o l'uomo desidera che lo faccia, per abdicare alla propria volontà, per lui troppo onerosa?
 
 IDEE A CASO:
 Finale con salto, "visto non ti sei fatto male", "non serve a niente ripararsi dal vento"; però poi ho pensato "Fanculo i salti della fede", ma non ricordo il perché.
 Però il salto avviene verso l'alto questa volta.
 
-Ribaltare il dialogo: il demone parla all'uomo debole pieno di domande, ma l'uomo debole e pieno di domande si ribella: "demone vuoi farmi la ramanzina? ma tu non fai che darmi ordini, perché non provi a muovere tu questo corpo?"
-Il demone viene a reclamare, o l'uomo desidera che lo faccia, per abdicare alla propria volontà, per lui troppo onerosa?
+Potrebbe recitare una poesia e finire il gioco. Un monologo in cui odia il demone, lo disprezza e ne elenca i difetti; attribuisce a lui l'origine di tutti i propri mali.
+L'uomo debole e pieno di domande si ribella: "demone vuoi farmi la ? ma tu non fai che darmi ordini, perché non provi a muovere tu questo corpo? Pensi che sapresti fare di meglio?"
 
 Sex and vegetables
 
 Asklepios, imparentato con Erato. Mnemosyne madre delle muse.
 
+Che cosa devo pagare? Che cosa ho sbagliato? Perché credo di star vivendo un contrappasso e di dover sempre vivere la pena di Sisifo? Forse è più comodo pensare che qualche forza mi stia punendo, una forza ancestrale, evolutasi in milioni di anni e verso cui non ho portato i giusti tributi nel corso di questi anni.
+Se avessi compiuto le scelte giuste, usato bene il mio tempo, ascoltato ed applicato i consigli saggi, magari adesso non avrei rimorsi.
+Sto vivendo un dolore adesso che avrei potuto vivere anni fa? Sono colpevole e responsabile di questa sofferenza o mi sono fatto raggirare? Sono stato più pigro degli altri? Meno capace di prendermi resposnabilità che dovevo prendermi? Snob?
 
 FAR CAPIRE CHE IL CAPITOLO è CONCLUSO
 far ricominciare il gioco da capo e resettarlo (non so come si faccia ma spero ci sia il modo integrato in Bitsy, altrimenti trovare il modo).
