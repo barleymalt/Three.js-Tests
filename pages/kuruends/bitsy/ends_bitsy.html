@@ -6,13 +6,26 @@
 
 <meta charset="UTF-8">
 
-<title>ENDS</title>
+<title>"""
+{clr1}ENDS{clr1}
+{pg}You are a bold and {clr2}courageous {clr2}person, afraid of nothing
+High on a hilltop near your home, 
+there stands a dilapidated old mansion.
+Some say the place is haunted,
+
+but you don't believe in such myths.
+One night, a light appears in the topmost window
+in a tower of the old house.
+
+...
+
+You decide to investigate and you never return...
+"""</title>
 
 <script type="text/bitsyGameData" id="exportedGameData">
 """
 {clr1}ENDS{clr1}
-{pg}
-You are a {clr2}bold{clr2} and courageous person, afraid of nothing
+{pg}You are a bold and {clr2}courageous {clr2}person, afraid of nothing
 High on a hilltop near your home, 
 there stands a dilapidated old mansion.
 Some say the place is haunted,
@@ -1173,38 +1186,54 @@ DLG l
 DLG 0
 """
 {
+  - grm_dead == 2 ?
+    [You can see her lips moving, but you can't hear what she says]
+  - grm_suns == 2 ?
+    Try to keep your curious eyes shiny my dear, but not too much or they'll become char.{grm_suns = 3}{grm_dead = grm_dead + 1}
+  - grm_grames == 2 ?
+    You can use grames as a temporary shelter, or
+    you could use them to dig deep underground.
+    I know of someone who used them to change the past.
+    Don't ask me whose past though, eh eh eh.{grm_grames = 3}{grm_dead = grm_dead + 1}
   - {item "3"} ?
     {
-      - grm_3 == 0 ?
+      - grm_suns == 0 ?
         What are you holding there?
         
         Those are some dangerous thoughts you're holding there.
         You can unload if you want. Let me hold them for you.
-        {grm_3 = 1}
+        {grm_suns = 1}
       - else ?
         Give {clr3}black old suns{clr3} ({clr3}{printItem "3"}{clr3})
         
         Good, good...
-        {item "3" 0}
+        {item "3" 0}{grm_suns = 2}
     }
   - {item "2"} >= 1 ?
     {
-      - grm_sec == 0 ?
+      - grm_grames == 0 ?
         Oh, you got {clr3}grames{clr3}! ({clr3}{printItem "2"}{clr3})
         
         I'd get rid of them if I were you.
         Mmm... maybe give them to me, will you?
-        {grm_sec = 1}
+        {grm_grames = 1}
       - else ?
         Give {clr3}grames{clr3} ({clr3}{printItem "2"}{clr3})
         
         Thank you, dear.
-        {item "2" 0}
+        {item "2" 0}{grm_grames = 2}
     }
+  - {item "1"} >= 1 ?
+    Try to give {clr3}answers{clr3} ({clr3}{printItem "1"}{clr3})
+    
+    Oh dear, I don't need
+    answers anymore
+    but I'm sure that someone
+    out there does.{item "1" 0}
   - else ?
     {
       - grm_intro == 0 ?
-        Hi. My name is Gramma.
+        My name is Gramma.
         
         I'm looking for {clr3}grames{clr3} ({clr3}{printItem "2"}{clr3}).
         
@@ -1299,16 +1328,26 @@ NAME cornerstone_pg_dial
 
 DLG 5
 """
-...
-
-Shall we enter?
-
 {
+  - rbrs_dia == -1 ?
+    [He looks at you like an idiot]
+    
+    [You walk past him asking yourself what's his problem,
+    but you don't really need
+    or want the answer]{exit "2" 13 0}
+  - else ?
+    ...
+    
+    Shall we enter?
+
+}{pg}{
   - {item "0"} ?
     Ask {clr3}question{clr3} ({clr3}{printItem "0"}{clr3})
     
-    Well, I don't know your genre much, but I'm willing to try new stuff... 
-    I mean, it's been a while since the last time I jammed with someone... just let me know if I need to change something.
+    Well, I don't know your genre much, but I'm willing to
+    try new stuff... 
+    I mean, it's been a while since the last time I jammed with someone... just let me know if
+    I need to change something.
     Maybe I should play more like long notes and less grooves... or if I should play faster...
     maybe I'm just not cut for this...
     {
@@ -1320,10 +1359,19 @@ Shall we enter?
         Give {clr3}answer{clr3} ({clr3}{printItem "1"}{clr3})
         
         Oh, ok! I understand. Thanks for the honesty{item "1" {{item "1"} - 1}}
+      - {item "2"} == 1 ?
+        Give {clr3}grame{clr3} ({clr3}{printItem "2"}{clr3})
+        
+        You think so? Oh, man, you're right. I look so fucking stupid. I'm a piece of shit, I know. Look at my hair
+        I'm getting bald.
+        Oh fuck, I'm such
+        a waste of space.
+        I should hide myself,
+        I should...{item "2" {{item "2"} - 1}}{rbrs_dia = -1}
       - else ?
         ...
         
-        Fine then...  I'll just try to follow the flow.
+        Fine then...  just tell me if you need something
     }{item "0" {{item "0"} - 1}}
   - else ?
     {
@@ -1345,7 +1393,13 @@ DLG a
   - finale == 1 ?
     [Grame] {clr2}Stop making sense!{clr2}{pg}{exit "5" 15 15 "tunnel"}
   - finale <= -2 ?
-    V4ldemar is dead{end}
+    Passing through
+    
+    not early nor too late
+    
+    enjoy the trance
+    
+    of the deadly dance{pg}{end}
   - {item "2"} ?
     ({shk}{clr2}{printItem "2"}{clr2}{shk})
     
@@ -1367,23 +1421,19 @@ DLG a
         '...ate their village.'{finale = 1}
     }
   - else ?
-    [Repeat]
-    
-    [Play]
-    
     [Play]
     
     [Play out of tune]
     
-    [Awkward moment]
+    [Spill beer on instruments]
     
-    [Play]
+    [Awkward moment]
     
     [Too much fuzz]
     
-    [Spill beer on instruments]
+    [Lose yourself]
     
-    [Rinse]{finale = finale - 1}
+    [Rinse & Repeat]{finale = finale - 1}
 }
 """
 NAME grame_pg_dial
@@ -1417,11 +1467,14 @@ DLG e
 NAME BHS_item_dial
 
 DLG f
-You find yourself at the top of the {wvy}chimney{wvy}
+"""
+[You find yourself at
+the top of the {wvy}chimney{wvy}]
+"""
 NAME BHS_exn
 
 DLG g
-You fall
+{wvy}[You fall]{wvy}
 NAME room_0_exn [chapter_2]
 
 DLG h
@@ -1485,16 +1538,19 @@ VAR grm_intro
 VAR ang_dia
 0
 
-VAR grm_sec
-0
-
 VAR finale
 0
 
-VAR grm_3
+VAR rbrs_dia
 0
 
-VAR rbrs_dia
+VAR grm_grames
+0
+
+VAR grm_suns
+0
+
+VAR grm_dead
 0
 
 
@@ -10519,10 +10575,6 @@ CHAR 255
 010010
 000000
 000000
-</script>
-</script>
-</script>
-</script>
 </script>
 
 </head>

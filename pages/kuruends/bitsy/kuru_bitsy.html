@@ -6,7 +6,12 @@
 
 <meta charset="UTF-8">
 
-<title>KURU</title>
+<title>"""
+{clr2}KURU{clr2}
+{pg}
+{clr2}Machines{clr2} were mice and {clr2}men{clr2} were lions once upon a time.
+But now that it's the opposite it's {clr2}twice upon a time{clr2}.
+"""</title>
 
 <script type="text/bitsyGameData" id="exportedGameData">
 """
@@ -77,7 +82,7 @@ ITM 1 11,7
 ITM 0 14,11
 ITM 1 9,11
 ITM 0 14,3
-EXT 8,14 2 13,2 FX fade_b
+EXT 8,14 2 13,2 FX fade_b DLG f
 EXT 0,14 1 15,14 FX fade_w DLG 9
 EXT 15,14 1 0,14 FX fade_w DLG 9
 EXT 1,15 1 15,14 FX fade_w DLG 9
@@ -1158,17 +1163,12 @@ DLG 5
     Just, don't tell me you don't know...
     {rdn_d = 1}
 }{
-  - rdn_d == 2 ?
-    Can you hear me?
-    
-    {wvy}Swoosh{wvy}!
-
   - {item "1"} ?
     Give {clr3}answers{clr3} to {shk}Rodney{shk}
     
     {shk}Oh... Thanks...{shk}
     
-    Shouldn't I be feeling better now?{item "1" 0}{rdn_d = 2}{exit "2" 6 12 "fade_w"}
+    Shouldn't I be feeling better now?{item "1" 0}{rdn_d = 2}{pg}{exit "2" 6 12 "fade_w"}
   - else ?
     know... know... know...
 }
@@ -1193,8 +1193,16 @@ NAME teleport_exn
 
 DLG a
 """
-{clr1}[Main] You wanted to talk to me.{clr1}
-{pg}{clr2}[Main] What for?{clr2}
+The woman churning
+curd into butter,
+she has to pull one
+end of the rope,
+and let the other end go
+otherwise the rope will break.
+You accidentally forget to eat for ten years
+and you die of starvation.
+
+GAME OVER!{end}
 """
 NAME frame_pg_dial
 
@@ -1219,10 +1227,32 @@ DLG d
 """
 Are you ready?
 
-Then, let us return to the Abyss.
+Then, let us return to the {clr2}abyss{clr2}.
 Entrust thine flesh to me.
 """
 NAME ending
+
+DLG e
+"""
+{
+  - rdn_d == 2 ?
+    {property locked false}
+  - else ?
+    {property locked true}
+}
+"""
+NAME locked exit 1
+
+DLG f
+"""
+{
+  - rdn_d == 2 ?
+    {property locked true}
+  - else ?
+    {property locked false}
+}
+"""
+NAME road_to_rodney
 
 VAR rdn_d
 0
@@ -10255,10 +10285,6 @@ CHAR 255
 010010
 000000
 000000
-</script>
-</script>
-</script>
-</script>
 </script>
 
 </head>

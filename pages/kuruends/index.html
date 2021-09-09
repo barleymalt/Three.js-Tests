@@ -20,6 +20,31 @@
         color: #191919;
         font-family: "Unica One", sans-serif;
       }
+      footer {
+        position: absolute;
+        text-align: center;
+        right: 0;
+        bottom: 0;
+      }
+      /* unvisited link */
+      a:link {
+        color: #ff2342;
+        text-decoration: none;
+      }
+      /* visited link */
+      a:visited {
+        color: #ff2342;
+        text-decoration: none;
+      }
+      /* mouse over link */
+      a:hover {
+        color: #191919;
+      }
+      /* selected link */
+      a:active {
+        color: #ff2342;
+      }
+
       #color-red {
         color: #ff2342;
       }
@@ -34,6 +59,16 @@
 
       .child:active {
         transform: translateX(5px);
+      }
+
+      .noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
       }
 
       /* Desktop */
@@ -78,10 +113,10 @@
   </head>
   <body>
     <div class="row">
-      <p>-_</p>
+      <p class="noselect">-_</p>
     </div>
     <div class="row">
-      <p>
+      <p class="noselect">
         USE
         <span style="color: #ff0000">wasd</span> OR
         <span style="color: #ff0000">arrows</span> TO PLAY
@@ -89,8 +124,8 @@
     </div>
     <div class="row">
       <!-- <h1>.</h1> -->
-      <h1>kuru</h1>
-      <h1 id="color-red">ends</h1>
+      <h1 class="noselect">kuru</h1>
+      <h1 class="noselect" id="color-red">ends</h1>
     </div>
     <div class="row">
       <div class="child">
@@ -108,5 +143,10 @@
         </iframe>
       </div>
     </div>
+    <footer>
+      <a href="https://ledoux.itch.io/bitsy" target="_blank"
+        >This game was made wiTh biTsy</a
+      >
+    </footer>
   </body>
 </html>
