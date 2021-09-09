@@ -23,7 +23,7 @@
       }
       footer {
         position: fixed;
-        text-align: center;
+        text-align: right;
         right: 0;
         bottom: 0;
       }
@@ -50,6 +50,10 @@
         color: #ff2342;
       }
 
+      #stop-music {
+        display: none;
+      }
+
       .noselect {
         -webkit-touch-callout: none; /* iOS Safari */
         -webkit-user-select: none; /* Safari */
@@ -61,8 +65,8 @@
       }
 
       .empty {
-          height: 1vw;
-        }
+        height: 1vw;
+      }
 
       /* Desktop */
       @media (min-width: 1100px) {
@@ -161,24 +165,40 @@
       </div>
       <div class="empty"></div>
     </div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="row">
+      <a href="#" onclick="playMusic()" id="play-music">play music</a>
+      <a href="#" onclick="stopMusic()" id="stop-music">sTop music</a>
+    </div>
     <footer>
+      <a href="https://frattap.itch.io/kuruends" target="_blank"
+        >iTch.io page</a
+      >
+      <p>_-</p>
       <a href="https://ledoux.itch.io/bitsy" target="_blank"
         >This game was made wiTh biTsy</a
       >
     </footer>
     <script>
+      var audio = new Audio("media/music.mp3");
+      audio.loop = false;
+      audio.muted = false;
+
       function playMusic() {
-        var audio = new Audio("media/music.mp3");
-        audio.loop = false;
         audio.play();
 
-        window.addEventListener("touchstart", () => {
-          audio.muted = false;
-          audio.play();
-        });
+        document.getElementById("play-music").style.display = "none";
+        document.getElementById("stop-music").style.display = "block";
       }
 
-      playMusic();
+      function stopMusic() {
+        audio.pause();
+
+        document.getElementById("play-music").style.display = "block";
+        document.getElementById("stop-music").style.display = "none";
+      }
     </script>
   </body>
 </html>
