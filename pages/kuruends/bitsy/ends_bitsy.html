@@ -1187,9 +1187,10 @@ DLG 0
 """
 {
   - grm_dead == 2 ?
-    [You can see her lips moving, but you can't hear what she says]
+    [You can see her lips moving, but you can't hear her voice]
   - grm_suns == 2 ?
-    Try to keep your curious eyes shiny my dear, but not too much or they'll become char.{grm_suns = 3}{grm_dead = grm_dead + 1}
+    Try to keep your bright eyes curious, my dear, still
+    don't ask too much or they'll become garish.{grm_suns = 3}{grm_dead = grm_dead + 1}
   - grm_grames == 2 ?
     You can use grames as a temporary shelter, or
     you could use them to dig deep underground.
@@ -1285,7 +1286,7 @@ DLG 4
           - [Smashes your face, again]
             
             [You faint]
-            {exit "2" 14 12 "fade_b"}
+            {exit "2" 14 0 "fade_b"}
         }{pg}{item "2" {{item "2"} - 1}}
       - ang_dia == 2 ?
         Can you leave me alone, please?
@@ -1317,7 +1318,7 @@ DLG 4
             
             Go to hell
             {item "1" {{item "1"} - 3}}
-          - Let's go, it's getting late{pg}{exit "2" 15 1}
+          - Let's go, it's getting late{pg}{exit "2" 14 0}
         }{pg}{item "1" {{item "1"} - 1}}
       - else ?
         Let's go. That guy, Roboris, is waiting for us
@@ -1548,7 +1549,7 @@ VAR grm_grames
 0
 
 VAR grm_suns
-0
+2
 
 VAR grm_dead
 0

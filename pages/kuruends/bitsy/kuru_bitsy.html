@@ -713,7 +713,7 @@ SPR A
 01001000
 00001010
 00010000
-POS 0 9,4
+POS 3 7,7
 
 SPR a
 00100000
@@ -1197,12 +1197,12 @@ The woman churning
 curd into butter,
 she has to pull one
 end of the rope,
-and let the other end go
+and let the other end go,
 otherwise the rope will break.
-You accidentally forget to eat for ten years
-and you die of starvation.
+...
 
-GAME OVER!{end}
+[You forget to eat for ten years and you starve to death]
+GAME OVER!{pg}{end}
 """
 NAME frame_pg_dial
 
@@ -1231,17 +1231,6 @@ Then, let us return to the {clr2}abyss{clr2}.
 Entrust thine flesh to me.
 """
 NAME ending
-
-DLG e
-"""
-{
-  - rdn_d == 2 ?
-    {property locked false}
-  - else ?
-    {property locked true}
-}
-"""
-NAME locked exit 1
 
 DLG f
 """
