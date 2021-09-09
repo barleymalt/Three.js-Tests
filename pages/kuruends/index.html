@@ -60,6 +60,10 @@
                                   supported by Chrome, Edge, Opera and Firefox */
       }
 
+      .empty {
+          height: 1vw;
+        }
+
       /* Desktop */
       @media (min-width: 1100px) {
         .row {
@@ -105,9 +109,8 @@
           margin-right: auto;
         }
       }
-      @media (pointer:coarse)
-      {
-        .empty{
+      @media (pointer: coarse) {
+        .empty {
           height: 15vw;
         }
         h1 {
@@ -140,6 +143,7 @@
       <h1 class="noselect">kuru</h1>
       <h1 class="noselect" id="color-red">ends</h1>
     </div>
+    <div class="empty"></div>
     <div class="row">
       <div class="child">
         <iframe
@@ -162,5 +166,19 @@
         >This game was made wiTh biTsy</a
       >
     </footer>
+    <script>
+      function playMusic() {
+        var audio = new Audio("media/music.mp3");
+        audio.loop = false;
+        audio.play();
+
+        window.addEventListener("touchstart", () => {
+          audio.muted = false;
+          audio.play();
+        });
+      }
+
+      playMusic();
+    </script>
   </body>
 </html>
